@@ -1,6 +1,3 @@
-source ~/.git-completion.sh
-source ~/.bash_colors.sh
-
 git_prompt_color() {
   if [ -n "$(git_prompt_info)" ]; then
     if [ "changed" = $(git_status) ]; then
@@ -31,10 +28,6 @@ git_status() {
   else
     echo "unchanged"
   fi
-}
-
-reset_profile() {
-  source ~/.bash_profile
 }
 
 PROMPT_COMMAND='git_prompt_color'

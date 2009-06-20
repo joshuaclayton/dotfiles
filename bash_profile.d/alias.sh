@@ -1,6 +1,3 @@
-export SVN_EDITOR=vi
-export DISPLAY=:0.0
-export CLICOLOR=1
 alias ss="script/server"
 alias sc='script/console'
 alias ga='git add'
@@ -22,8 +19,6 @@ alias start_mysql='sudo launchctl load -w /Library/LaunchDaemons/com.mysql.mysql
 
 alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
 
-PS1='[\u \w$(__git_ps1 " | %s")]\$ '
-
-source ~/.git-sexy.sh
-
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Developer/SDKs/flex_sdk_3/bin:$PATH"
+reset_profile() {
+  source ~/.bash_profile
+}
