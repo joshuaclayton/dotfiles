@@ -17,7 +17,7 @@ end
 
 desc "Install all dotfiles"
 task :install do
-  home = ENV['HOME'] + "/test"
+  home = ENV['HOME']
   pwd = File.dirname(__FILE__)
 
   %w(ackrc dir_colors gemrc vimrc vim irbrc irbrc.d bash_profile bash_profile.d).each do |file|
