@@ -5,7 +5,7 @@ alias gp='git pull'
 alias gci='git commit'
 alias oldrake="rake _0.7.3_"
 alias bp="cd '/Users/joshuaclayton/Sites/plugins/blueprint-css/lib/'; ruby compress.rb"
-alias sites="cd ~/Sites"
+alias s="cd ~/Sites"
 
 alias ..='cd ../'
 alias ...='cd ../..'
