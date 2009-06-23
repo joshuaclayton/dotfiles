@@ -17,8 +17,6 @@ alias .......='cd ../../../../../..'
 alias stop_mysql='sudo launchctl unload -w /Library/LaunchDaemons/com.mysql.mysqld.plist'
 alias start_mysql='sudo launchctl load -w /Library/LaunchDaemons/com.mysql.mysqld.plist'
 
-alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
-
 reset_profile() {
   source ~/.bash_profile
 }

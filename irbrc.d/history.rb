@@ -7,7 +7,7 @@ module Readline
       File.open(LOG, 'ab') {|f| f << "#{line}\n"} unless line == "exit"
     end
   end
-  
+
   alias :old_readline :readline
   def readline(*args)
     ln = old_readline(*args)

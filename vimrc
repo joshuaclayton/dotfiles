@@ -169,10 +169,13 @@ set wildmode=list:longest,list:full
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
-set gfn=Inconsolata:h17
+set gfn=Inconsolata:h19
 
 " Custom settings / bindings
 let g:fuzzy_ignore = "*.log"
 let g:fuzzy_matching_limit = 70
 map <leader>ff :FuzzyFinderTextMate<CR>
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+
+match Error /\%>80v/
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
