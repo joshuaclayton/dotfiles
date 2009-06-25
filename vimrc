@@ -150,8 +150,9 @@ endif
 
 " Color scheme
 colorscheme vividchalk
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
+highlight NonText    guibg=#060606
+highlight Folded     guibg=#0A0A0A guifg=#9090D0
+highlight SpecialKey guibg=Red ctermbg=DarkRed guifg=NONE ctermfg=NONE
 
 " Numbers
 set number
@@ -178,4 +179,5 @@ map <leader>ff :FuzzyFinderTextMate<CR>
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
 match Error /\%>80v/
+
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
