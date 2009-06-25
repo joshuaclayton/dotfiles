@@ -1,10 +1,3 @@
-export SVN_EDITOR=vi
-export DISPLAY=:0.0
-export CLICOLOR=1
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:/Developer/SDKs/flex_sdk_3/bin:$PATH"
-
-PS1='[\u \w$(__git_ps1 " | %s")]\$ '
-
 function make-completion-wrapper () {
   local function_name="$2"
   local arg_count=$(($#-3))
@@ -19,10 +12,6 @@ function $function_name {
 }"
   eval "$function"
 }
-
-for a in `ls $HOME/.bash_profile.d/*.sh`; do
-  source $a
-done
 
 _ruby_tests() {
   typ="${COMP_WORDS[1]}"
