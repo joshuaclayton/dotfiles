@@ -52,6 +52,9 @@ if has("autocmd")
 
   augroup END
 
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+
 else
 
   set autoindent		" always set autoindenting on
@@ -61,7 +64,7 @@ endif " has("autocmd")
 if has("folding")
   set foldenable
   set foldmethod=syntax
-  set foldlevel=1
+  " set foldlevel=1
   set foldnestmax=2
   set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
 
@@ -149,10 +152,9 @@ if executable("ack")
 endif
 
 " Color scheme
-colorscheme vividchalk
-highlight NonText    guibg=#060606
-highlight Folded     guibg=#0A0A0A guifg=#9090D0
-highlight SpecialKey guibg=Red ctermbg=DarkRed guifg=NONE ctermfg=NONE
+colorscheme customtwilight
+highlight CursorLine    guibg=#333333 guifg=NONE
+highlight CursorColumn  guibg=#333333 guifg=NONE
 
 " Numbers
 set number
@@ -177,7 +179,5 @@ let g:fuzzy_ignore = "*.log"
 let g:fuzzy_matching_limit = 70
 map <leader>ff :FuzzyFinderTextMate<CR>
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-
-match Error /\%>80v/
 
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
