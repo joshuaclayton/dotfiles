@@ -1,4 +1,4 @@
-function make-completion-wrapper () {
+make-completion-wrapper () {
   local function_name="$2"
   local arg_count=$(($#-3))
   local comp_function_name="$1"
