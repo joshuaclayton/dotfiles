@@ -99,20 +99,12 @@ map <Leader>sv :RSview
 map <Leader>su :RSunittest
 map <Leader>sf :RSfunctionaltest
 
+" Edit routes
+command! Rroutes :e config/routes.rb
+command! RTroutes :tabe config/routes.rb
+
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Maps autocomplete to tab
 imap <Tab> <C-N>
@@ -127,20 +119,8 @@ au! BufRead,BufNewFile *.haml         setfiletype haml
 " No Help, please
 nmap <F1> <Esc>
 
-" Press ^F from insert mode to insert the current file name
-imap <C-F> <C-R>=expand("%")<CR>
-
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
-
-" Edit routes
-command! Rroutes :e config/routes.rb
-command! RTroutes :tabe config/routes.rb
-
-" Local config
-if filereadable(".vimrc.local")
-  source .vimrc.local
-endif
 
 " Use Ack instead of Grep when available
 if executable("ack")
@@ -149,8 +129,6 @@ endif
 
 " Color scheme
 colorscheme customtwilight
-highlight CursorLine    guibg=#333333 guifg=NONE
-highlight CursorColumn  guibg=#333333 guifg=NONE
 
 " Numbers
 set number
@@ -158,7 +136,6 @@ set numberwidth=5
 
 " Snippets are activated by Shift+Tab
 let g:snippetsEmu_key = "<S-Tab>"
-let g:ackprg="ack\\ -H\\ --nogroup"
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)

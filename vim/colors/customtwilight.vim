@@ -35,8 +35,6 @@ highlight StatusLine    guifg=Black   guibg=#aabbee gui=bold ctermfg=Black cterm
 highlight StatusLineNC  guifg=#444444 guibg=#aaaaaa gui=none ctermfg=Black ctermbg=Grey   cterm=none
 highlight WildMenu      guifg=Black   guibg=#ffff00 gui=bold ctermfg=Black ctermbg=Yellow cterm=bold
 highlight Cursor        guifg=Black guibg=White ctermfg=Black ctermbg=White
-highlight CursorLine    guibg=#333333 guifg=NONE
-highlight CursorColumn  guibg=#333333 guifg=NONE
 highlight NonText       guifg=#404040 ctermfg=8
 highlight Directory     none
 high link Directory     Identifier
@@ -45,18 +43,15 @@ highlight Search        guifg=NONE ctermfg=NONE gui=none cterm=none
 call s:hibg("Search"    ,"#555555","Black",81)
 highlight IncSearch     guifg=White guibg=Black ctermfg=White ctermbg=Black
 highlight MoreMsg       guifg=#00AA00 ctermfg=Green
-highlight LineNr        guifg=#DDEEFF ctermfg=White
-call s:hibg("LineNr"    ,"#222222","DarkBlue",80)
 highlight Question      none
 high link Question      MoreMsg
-highlight Title         guifg=Magenta ctermfg=Magenta
 highlight VisualNOS     gui=none cterm=none
 call s:hibg("Visual"    ,"#555577","LightBlue",83)
 call s:hibg("VisualNOS" ,"#444444","DarkBlue",81)
 highlight WarningMsg    guifg=Red ctermfg=Red
 highlight Folded        guibg=#1100aa ctermbg=DarkBlue
-call s:hibg("Folded"    ,"#110077","DarkBlue",17)
-call s:hifg("Folded"    ,"#aaddee","LightCyan",63)
+call s:hibg("Folded"    ,"#110077")
+call s:hifg("Folded"    ,"#aaddee")
 highlight FoldColumn    none
 high link FoldColumn    Folded
 highlight Pmenu         guifg=White ctermfg=White gui=bold cterm=bold
@@ -66,22 +61,12 @@ call s:hibg("PmenuSel"  ,"#5555ff","DarkCyan",39)
 highlight PmenuSbar     guibg=Grey ctermbg=Grey
 highlight PmenuThumb    guibg=White ctermbg=White
 highlight TabLine       gui=underline cterm=underline
-call s:hifg("TabLine"   ,"#bbbbbb","LightGrey",85)
-call s:hibg("TabLine"   ,"#333333","DarkGrey",80)
+call s:hifg("TabLine"   ,"#bbbbbb")
+call s:hibg("TabLine"   ,"#333333")
 highlight TabLineSel    guifg=White guibg=Black ctermfg=White ctermbg=Black
 highlight TabLineFill   gui=underline cterm=underline
-call s:hifg("TabLineFill","#bbbbbb","LightGrey",85)
-call s:hibg("TabLineFill","#808080","Grey",83)
-
-hi Type gui=none
-hi Statement gui=none
-if has("gui_mac")
-    " Mac GUI degrades italics to ugly underlining.
-    hi Comment gui=italic
-    hi railsUserClass  gui=italic
-    hi railsUserMethod gui=italic
-endif
-hi Identifier cterm=none
+call s:hifg("TabLineFill","#bbbbbb")
+call s:hibg("TabLineFill","#808080")
 
 match Error /\%80v.\+/
 
@@ -97,9 +82,12 @@ let tm_string_regexp="#dec266"
 let tm_string_regexp_special="#bb8139"
 let tm_support_constant="#b86f4f"
 let red="#611506"
+let grey="#333333"
 
 call s:hibg("Error",      red)
 call s:hibg("SpecialKey", red)
+call s:hifg("Folded",     tm_support)
+call s:hibg("Folded",     "#222222")
 call s:hifg("SpecialKey", "#ffffff")
 
 " FROM TEXTMATE
@@ -123,16 +111,21 @@ call s:hifg("Include",    tm_keyword)
 
 " Ruby-specific
 call s:hifg("rubyPredefinedConstant", red)
-call s:hifg("rubyPseudoOperator", tm_variable)
-call s:hifg("rubyInstanceVariable", tm_variable)
-call s:hifg("rubyIdentifier", tm_variable)
-call s:hifg("rubyConstant", tm_constant)
-call s:hifg("rubyModule", tm_keyword)
-call s:hifg("rubyModuleDeclaration", tm_storage)
-call s:hifg("rubyPseudoVariable", tm_support)
-call s:hifg("rubyControl", tm_keyword)
-call s:hifg("rubyFunction", tm_entity)
-call s:hifg("rubyEval", tm_storage)
-call s:hibg("rubyEval", red)
-call s:hifg("railsMethod", tm_storage)
-call s:hifg("rubySymbol", tm_constant)
+call s:hifg("rubyPseudoOperator",     tm_variable)
+call s:hifg("rubyInstanceVariable",   tm_variable)
+call s:hifg("rubyIdentifier",         tm_variable)
+call s:hifg("rubyConstant",           tm_constant)
+call s:hifg("rubyModule",             tm_keyword)
+call s:hifg("rubyModuleDeclaration",  tm_storage)
+call s:hifg("rubyPseudoVariable",     tm_support)
+call s:hifg("rubyControl",            tm_keyword)
+call s:hifg("rubyFunction",           tm_entity)
+call s:hifg("rubyEval",               tm_storage)
+call s:hibg("rubyEval",               red)
+call s:hifg("railsMethod",            tm_storage)
+call s:hifg("rubySymbol",             tm_constant)
+
+call s:hibg("CursorLine",   grey)
+call s:hibg("CursorColumn", grey)
+call s:hifg("LineNr",       "#dddddd")
+call s:hibg("LineNr",       grey)
