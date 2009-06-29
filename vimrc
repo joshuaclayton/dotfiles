@@ -51,6 +51,9 @@ if has("autocmd")
   autocmd WinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
 
+  " turn syntax highlighting on all the friggin' time;
+  " that way, chars > 80 get highlighted always
+  autocmd BufRead,BufNewFile * :syntax on
 else
 
   set autoindent " always set autoindenting on
@@ -113,9 +116,6 @@ imap <Tab> <C-N>
 " Visual mode: D
 vmap D y'>p
 
-" For Haml
-au! BufRead,BufNewFile *.haml         setfiletype haml
-
 " No Help, please
 nmap <F1> <Esc>
 
@@ -145,7 +145,7 @@ set wildmode=list:longest,list:full
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
-set gfn=Inconsolata:h20
+set gfn=Inconsolata:h21
 
 " Custom settings / bindings
 let g:fuzzy_ignore = "*.log"
