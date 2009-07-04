@@ -12,6 +12,6 @@ class File
   def self.string_to_file(string, path)
     directory = File.dirname(path)
     FileUtils.mkdir_p directory unless File.directory?(directory)
-    File.open(path, 'w') { |f| f << string }
+    File.open(path, "w") { |file| file << string }
   end
 end

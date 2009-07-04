@@ -1,1 +1,1 @@
-require 'irb/completion'
+require "irb/completion"

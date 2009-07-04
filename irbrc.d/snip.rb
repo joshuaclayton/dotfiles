@@ -9,7 +9,9 @@ class Snip
   end
 
   def self.[](name)
-    raise SnippetNotFoundError, "the snippet '#{name.to_s}' was not found" unless @@snips.has_key?(name.to_s)
+    unless @@snips.has_key?(name.to_s)
+      raise SnippetNotFoundError, "the snippet '#{name.to_s}' was not found"
+    end
     @@snips[name.to_s].call
   end
 
