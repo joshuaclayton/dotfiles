@@ -145,7 +145,7 @@ set wildmode=list:longest,list:full
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
-set gfn=Inconsolata:h21
+set gfn=Inconsolata:h23
 
 " Custom settings / bindings
 let g:fuzzy_ignore = "*.log"
