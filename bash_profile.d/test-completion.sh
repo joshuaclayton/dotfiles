@@ -28,3 +28,21 @@ make-completion-wrapper _ruby_tests _tu ruby_test unit
 complete -F _ruby_tests ruby_test
 complete -F _tf tf
 complete -F _tu tu
+
+_ruby_specs() {
+  typ="${COMP_WORDS[1]}"
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=()
+  if [[ -n $cur ]]; then
+    tests=`TEST=spec ruby_test -l "${typ}"`
+    COMPREPLY=( $(compgen -W "${tests}" ${cur}) )
+  fi
+}
+
+make-completion-wrapper _ruby_specs _stf ruby_test controllers
+make-completion-wrapper _ruby_specs _stu ruby_test models
+make-completion-wrapper _ruby_specs _stv ruby_test views
+complete -F _ruby_specs TEST=spec ruby_test
+complete -F _stf stf
+complete -F _stu stu
+complete -F _stv stv

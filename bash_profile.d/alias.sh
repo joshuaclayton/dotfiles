@@ -9,6 +9,9 @@ alias s="cd ~/Sites"
 alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare"
 alias tf="ruby_test functional"
 alias tu="ruby_test unit"
+alias stf="TEST=spec ruby_test controllers"
+alias stu="TEST=spec ruby_test models"
+alias stv="TEST=spec ruby_test views"
 alias ..='cd ../'
 alias ...='cd ../..'
 alias ....='cd ../../..'

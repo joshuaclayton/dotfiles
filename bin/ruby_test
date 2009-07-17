@@ -1,0 +1,85 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+class TestFinder
+  attr_reader :prefix, :test_type
+
+  def initialize(prefix, test_type = nil)
+    @prefix = prefix
+    @test_type = test_type || "test"
+  end
+
+  def name_to_file(name)
+    "#{prefix}/#{name}_#{test_type}.rb"
+  end
+
+  def file_to_name(file)
+    file.sub(%r{^#{Regexp.escape(prefix)}/}, "").sub(%r{_#{test_type}\.rb$}, "")
+  end
+
+  def test_files
+    @test_files ||= Dir["#{prefix}/**/*_#{test_type}.rb"]
+  end
+
+  def test_names
+    @test_names ||= test_files.collect {|file| file_to_name(file) }
+  end
+
+  def run(tests)
+    if tests.empty?
+      if test_files.empty?
+        puts "Nothing to do."
+      else
+        run(test_files)
+      end
+    else
+      tests = tests.collect {|test| force_test_file(test) }
+      command = command_to_run(tests)
+      puts command
+      exec command
+    end
+  end
+
+  def list
+    puts test_names.sort.join("\n")
+  end
+
+  def command_to_run(files)
+    if self.test_type == "test"
+      files_string = files.inspect
+      require_string = 'require "#{f}"'
+      %{ruby -Itest -e '#{files_string}.each {|f| #{require_string} }'}
+    elsif self.test_type == "spec"
+      %{spec #{files.join(" ")} --options spec/spec.opts}
+    else
+      ""
+    end
+  end
+
+  private
+
+  def force_test_file(test)
+    if test_files.include?(test)
+      test
+    elsif test_names.include?(test)
+      name_to_file(test)
+    else
+      raise "No such test: #{test.inspect}"
+    end
+  end
+end
+
+list   = ARGV.delete("-l") || ARGV.delete("--list")
+prefix = ARGV.shift
+
+root   = ENV["TEST"].nil? ? "test" : ENV["TEST"]
+prefix = prefix ? "#{root}/#{prefix}" : root
+finder = TestFinder.new(prefix, root)
+tests  = ARGV.dup
+
+if list
+  finder.list
+else
+  finder.run(tests)
+end
