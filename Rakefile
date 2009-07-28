@@ -23,5 +23,10 @@ task :install do
   %w(ackrc dir_colors gemrc vimrc vim irbrc irbrc.d bash_profile bash_profile.d inputrc).each do |file|
     symlink("#{pwd}/#{file}", "#{home}/.#{file}")
   end
+
+  rm("#{home}/.sake")
+  Dir.glob("#{pwd}/sake.d/*.rake") do |file|
+    system("sake -i #{file}")
+  end
 end
 
