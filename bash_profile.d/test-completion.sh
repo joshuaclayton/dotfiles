@@ -25,6 +25,9 @@ _ruby_tests() {
 
 make-completion-wrapper _ruby_tests _tf ruby_test functional
 make-completion-wrapper _ruby_tests _tu ruby_test unit
+
+complete -C rake_completion -o default rake
+
 complete -F _ruby_tests ruby_test
 complete -F _tf tf
 complete -F _tu tu
