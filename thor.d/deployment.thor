@@ -121,7 +121,7 @@ module Git
   end
 
   class Branch < Thor
-    desc "production", "branch origin/production into branch locally."
+    desc "production BRANCH", "branch origin/production into BRANCH locally."
     def production(branch)
       GitCommands.branch_production(branch)
     end
