@@ -148,9 +148,6 @@ set smartcase
 set gfn=Inconsolata:h23
 
 " Custom settings / bindings
-let g:fuzzy_ignore = "*.log"
-let g:fuzzy_matching_limit = 70
-map <leader>ff :FuzzyFinderTextMate<CR>
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
