@@ -8,3 +8,6 @@ PS1='[\u \w$(__git_ps1 " | %s")]\$ '
 for a in `ls $HOME/.bash_profile.d/*.sh`; do
   source $a
 done
+
+if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
+if [ -f ~/.rvm/current ] ; then source ~/.rvm/current ; fi
