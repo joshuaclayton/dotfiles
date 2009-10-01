@@ -1,7 +1,7 @@
---- 
+---
 :backtrace: false
 gem: --no-ri --no-rdoc
-:sources: 
+:sources:
 - http://gemcutter.org
 - http://gems.rubyforge.org/
 - http://gems.github.com
