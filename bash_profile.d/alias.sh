@@ -23,6 +23,8 @@ alias .......='cd ../../../../../..'
 alias stop_mysql='sudo launchctl unload -w /Library/LaunchDaemons/com.mysql.mysqld.plist'
 alias start_mysql='sudo launchctl load -w /Library/LaunchDaemons/com.mysql.mysqld.plist'
 alias current_ruby='which ruby gem irb rake'
+alias do_it='rake git:push:staging && cap staging deploy'
+alias do_it_live='rake git:push:production && cap production deploy'
 
 reset_profile() {
   source ~/.bash_profile
