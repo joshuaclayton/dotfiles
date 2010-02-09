@@ -12,3 +12,5 @@ Snippet visit When I visit <{}>
 
 " Factory steps
 Snippet exist Given a <{factory}> exists with a <{attribute}> of "<{}>"
+
+vmap <buffer> <C-A> !align_ascii_table<CR>
