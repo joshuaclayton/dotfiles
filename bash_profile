@@ -8,7 +8,4 @@ PS1='[\u \w$(__git_ps1 " | %s")]\$ '
 for a in `ls $HOME/.bash_profile.d/*.sh`; do
   source $a
 done
-
-if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
-if [ -f ~/.rvm/current ] ; then source ~/.rvm/current ; fi
-if [ -f ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
+if [[ -s /Users/joshuaclayton/.rvm/scripts/rvm ]] ; then source /Users/joshuaclayton/.rvm/scripts/rvm ; fi
