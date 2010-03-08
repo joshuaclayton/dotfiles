@@ -15,3 +15,9 @@ class File
     File.open(path, "w") { |file| file << string }
   end
 end
+
+Date::MONTHNAMES.compact.each_with_index do |month, index|
+  Object.send :define_method, month do |day, year|
+    Date.parse("#{index + 1}/#{day}/#{year}")
+  end
+end
