@@ -1,1 +1,3 @@
-au BufRead,BufNewFile *.less set filetype=css
+" Less
+autocmd BufNewFile,BufReadPost *.less set filetype=less
+autocmd BufNewFile,BufReadPost *.less set smartindent
