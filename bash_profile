@@ -1,8 +1,8 @@
 export SVN_EDITOR=vi
 export DISPLAY=:0.0
 export CLICOLOR=1
-export PATH="$HOME/.dotfiles/bin:$HOME/.homebrew/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/mysql/bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$HOME/.dotfiles/sbin:$HOME/.homebrew/bin:$PATH"
 
 PS1='[\u \w$(__git_ps1 " | %s")]\$ '
 
