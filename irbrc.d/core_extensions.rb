@@ -16,7 +16,7 @@ class File
   end
 end
 
-Date::MONTHNAMES.compact.each_with_index do |month, index|
+%w(January February March April May June July August September October November December).each_with_index do |month, index|
   Object.send :define_method, month do |day, year|
     Date.parse("#{index + 1}/#{day}/#{year}")
   end
