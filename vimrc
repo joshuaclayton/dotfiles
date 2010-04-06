@@ -150,7 +150,7 @@ set gfn=Inconsolata:h23
 " Custom settings / bindings
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
-:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 map <silent> <leader>rb :RunAllRubyTests<CR>
 map <silent> <leader>rc :RunRubyFocusedContext<CR>
 map <silent> <leader>rf :RunRubyFocusedUnitTest<CR>
