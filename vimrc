@@ -155,3 +155,4 @@ map <silent> <leader>rb :RunAllRubyTests<CR>
 map <silent> <leader>rc :RunRubyFocusedContext<CR>
 map <silent> <leader>rf :RunRubyFocusedUnitTest<CR>
 map <Leader>t :TlistToggle<CR>
+map <silent> <C-i> ^cw
