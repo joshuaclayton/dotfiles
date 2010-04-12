@@ -1,7 +1,7 @@
 alias ss="script/server"
 alias sc='script/console'
 alias gbr='git branch -r'
-alias bp="cd '/Users/joshuaclayton/Sites/plugins/blueprint-css/lib/'; ruby compress.rb"
+alias bp="cd '$HOME/Sites/plugins/blueprint-css/lib/'; ruby compress.rb"
 alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare"
 alias tf="ruby_test functional"
 alias tu="ruby_test unit"
@@ -14,6 +14,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias stop_mysql='launchctl unload -w $HOME/.homebrew/Cellar/mysql/5.1.45/com.mysql.mysqld.plist'
 alias start_mysql='launchctl load -w $HOME/.homebrew/Cellar/mysql/5.1.45/com.mysql.mysqld.plist'
+alias start_redis='redis-server $HOME/.homebrew/etc/redis.conf'
 alias current_ruby='which ruby gem irb rake'
 alias do_it='rake git:push:staging && cap staging deploy'
 alias do_it_live='rake git:push:production && cap production deploy'
