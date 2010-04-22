@@ -1,0 +1,40 @@
+_git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null)
+  if [[ -n $ref ]]; then
+    echo "${ref#refs/heads/}"
+  fi
+}
+
+_git_status() {
+  if [ -n "$(git status | grep 'Changed but not updated' 2> /dev/null)" ]; then
+    echo "changed"
+  elif [ -n "$(git status | grep 'Changes to be committed' 2> /dev/null)" ]; then
+    echo "pending"
+  elif [ -n "$(git status | grep 'Untracked files' 2> /dev/null)" ]; then
+    echo "untracked"
+  else
+    echo "unchanged"
+  fi
+}
+
+_git_prompt_color() {
+  if [ -n "$(_git_prompt_info)" ]; then
+    if [ "changed" = $(_git_status) ]; then
+      echo " %{$fg_bold[red]%}$1%{$reset_color%}"
+    elif [ "pending" = $(_git_status) ]; then
+      echo " %{$fg_bold[yellow]%}$1%{$reset_color%}"
+    elif [ "unchanged" = $(_git_status) ]; then
+      echo " %{$fg_bold[green]%}$1%{$reset_color%}"
+    elif [ "untracked" = $(_git_status) ]; then
+      echo " %{$fg_bold[cyan]%}$1%{$reset_color%}"
+    fi
+  else
+    echo "$1"
+  fi
+}
+
+_grey() { echo "%{$fg_bold[grey]%}$1%{$reset_color%}" }
+_colored_path() { echo "%{$fg_bold[white]%}%~%{$reset_color%}" }
+
+# prompt
+export PS1='$(_grey "[") %n $(_colored_path)$(_git_prompt_color $(_git_prompt_info)) $(_grey "]") '
