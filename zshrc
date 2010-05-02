@@ -37,4 +37,4 @@ setopt histignoredups
 # keep more history
 export HISTSIZE=200
 
-if [[ -s /Users/joshuaclayton/.rvm/scripts/rvm ]] ; then source /Users/joshuaclayton/.rvm/scripts/rvm ; fi
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
