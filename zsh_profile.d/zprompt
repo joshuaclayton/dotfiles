@@ -6,11 +6,12 @@ _git_prompt_info() {
 }
 
 _git_status() {
-  if [ -n "$(git status | grep 'Changed but not updated' 2> /dev/null)" ]; then
+  git_status=$(git status)
+  if [ -n "$(echo $git_status | grep 'Changed but not updated' 2> /dev/null)" ]; then
     echo "changed"
-  elif [ -n "$(git status | grep 'Changes to be committed' 2> /dev/null)" ]; then
+  elif [ -n "$(echo $git_status | grep 'Changes to be committed' 2> /dev/null)" ]; then
     echo "pending"
-  elif [ -n "$(git status | grep 'Untracked files' 2> /dev/null)" ]; then
+  elif [ -n "$(echo $git_status | grep 'Untracked files' 2> /dev/null)" ]; then
     echo "untracked"
   else
     echo "unchanged"
@@ -18,14 +19,15 @@ _git_status() {
 }
 
 _git_prompt_color() {
-  if [ -n "$(_git_prompt_info)" ]; then
-    if [ "changed" = $(_git_status) ]; then
+  if [ -n "$1" ]; then
+    current_git_status=$(_git_status)
+    if [ "changed" = $current_git_status ]; then
       echo " %{$fg_bold[red]%}$1%{$reset_color%}"
-    elif [ "pending" = $(_git_status) ]; then
+    elif [ "pending" = $current_git_status ]; then
       echo " %{$fg_bold[yellow]%}$1%{$reset_color%}"
-    elif [ "unchanged" = $(_git_status) ]; then
+    elif [ "unchanged" = $current_git_status ]; then
       echo " %{$fg_bold[green]%}$1%{$reset_color%}"
-    elif [ "untracked" = $(_git_status) ]; then
+    elif [ "untracked" = $current_git_status ]; then
       echo " %{$fg_bold[cyan]%}$1%{$reset_color%}"
     fi
   else
@@ -33,7 +35,7 @@ _git_prompt_color() {
   fi
 }
 
-_grey() { echo "%{$fg_bold[grey]%}$1%{$reset_color%}" }
+_grey()         { echo "%{$fg_bold[grey]%}$1%{$reset_color%}" }
 _colored_path() { echo "%{$fg_bold[white]%}%~%{$reset_color%}" }
 
 # prompt
