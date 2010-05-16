@@ -18,7 +18,3 @@ alias start_redis='redis-server $HOME/.homebrew/etc/redis.conf'
 alias current_ruby='which ruby gem irb rake'
 alias do_it='rake git:push:staging && cap staging deploy'
 alias do_it_live='rake git:push:production && cap production deploy'
-
-reset_profile() {
-  source ~/.bash_profile
-}

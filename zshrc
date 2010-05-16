@@ -1,10 +1,5 @@
-export SVN_EDITOR=vi
-export DISPLAY=:0.0
-export CLICOLOR=1
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.dotfiles/bin:$HOME/.dotfiles/sbin:$HOME/.homebrew/bin:$PATH"
-
-PS1='[\u \w$(__git_ps1 " | %s")]\$ '
 
 # completion
 autoload -U compinit
@@ -17,6 +12,7 @@ setopt auto_cd
 export EDITOR=vim
 
 source $HOME/.zlogin
+source $HOME/.aliases
 
 for a in `ls $HOME/.zsh_profile.d/*`; do
   source $a
@@ -27,9 +23,6 @@ bindkey -v
 
 # use incremental search
 bindkey ^R history-incremental-search-backward
-
-# expand functions in the prompt
-setopt prompt_subst
 
 # ignore duplicate history entries
 setopt histignoredups
