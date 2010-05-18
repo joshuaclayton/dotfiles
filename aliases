@@ -15,5 +15,7 @@ alias stop_mysql='launchctl unload -w $HOME/.homebrew/Cellar/mysql/5.1.45/com.my
 alias start_mysql='launchctl load -w $HOME/.homebrew/Cellar/mysql/5.1.45/com.mysql.mysqld.plist'
 alias start_redis='redis-server $HOME/.homebrew/etc/redis.conf'
 alias current_ruby='which ruby gem irb rake'
+alias o="mvim ."
+alias dotf="cd ~/.dotfiles"
 alias do_it='rake git:push:staging && cap staging deploy'
 alias do_it_live='rake git:push:production && cap production deploy'
