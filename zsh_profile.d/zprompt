@@ -6,15 +6,30 @@ _git_prompt_info() {
 }
 
 _git_status() {
-  git_status=$(git status)
-  if [ -n "$(echo $git_status | grep 'Changed but not updated' 2> /dev/null)" ]; then
+  git_status=$(git status 2> /dev/null)
+  if [ -n "$(echo $git_status | grep 'Changed but not updated')" ]; then
     echo "changed"
-  elif [ -n "$(echo $git_status | grep 'Changes to be committed' 2> /dev/null)" ]; then
+  elif [ -n "$(echo $git_status | grep 'Changes to be committed')" ]; then
     echo "pending"
-  elif [ -n "$(echo $git_status | grep 'Untracked files' 2> /dev/null)" ]; then
+  elif [ -n "$(echo $git_status | grep 'Untracked files')" ]; then
     echo "untracked"
   else
     echo "unchanged"
+  fi
+}
+
+_git_difference_from_track() {
+  git_status=$(git status 2> /dev/null)
+
+  if [ -n "$(echo $git_status | grep 'Your branch is behind')" ]; then
+    difference='-'
+  elif [ -n "$(echo $git_status | grep 'Your branch is ahead of')" ]; then
+    difference='+'
+  fi
+
+  if [ -n $difference ]; then
+    difference+=$(echo $git_status | grep 'Your branch is' | sed 's/[^0-9]//g')
+    echo "$difference"
   fi
 }
 
@@ -22,21 +37,34 @@ _git_prompt_color() {
   if [ -n "$1" ]; then
     current_git_status=$(_git_status)
     if [ "changed" = $current_git_status ]; then
-      echo " %{$fg_bold[red]%}$1%{$reset_color%}"
+      echo "%{$fg_bold[red]%}$1%{$reset_color%}"
     elif [ "pending" = $current_git_status ]; then
-      echo " %{$fg_bold[yellow]%}$1%{$reset_color%}"
+      echo "%{$fg_bold[yellow]%}$1%{$reset_color%}"
     elif [ "unchanged" = $current_git_status ]; then
-      echo " %{$fg_bold[green]%}$1%{$reset_color%}"
+      echo "%{$fg_bold[green]%}$1%{$reset_color%}"
     elif [ "untracked" = $current_git_status ]; then
-      echo " %{$fg_bold[cyan]%}$1%{$reset_color%}"
+      echo "%{$fg_bold[cyan]%}$1%{$reset_color%}"
     fi
   else
     echo "$1"
   fi
 }
 
-_grey()         { echo "%{$fg_bold[grey]%}$1%{$reset_color%}" }
-_colored_path() { echo "%{$fg_bold[white]%}%~%{$reset_color%}" }
+_color() {
+  if [ -n "$1" ]; then
+    echo "%{$fg_bold[$2]%}$1%{$reset_color%}"
+  fi
+}
+_separate()               { if [ -n "$1" ]; then echo " $1"; fi }
+_white()                  { echo "$(_color "$1" white)" }
+_grey()                   { echo "$(_color "$1" grey)" }
+_yellow()                 { echo "$(_color "$1" yellow)" }
+
+_bracket_wrap()           { echo "$(_grey "[") $1 $(_grey "]") " }
+_basic()                  { echo "%n $(_colored_path)" }
+_colored_path()           { echo "$(_white "%~")" }
+_colored_git_branch()     { echo "$(_git_prompt_color "$(_git_prompt_info)")" }
+_colored_git_difference() { echo "$(_yellow "$(_git_difference_from_track)")" }
 
 # prompt
-export PS1='$(_grey "[") %n $(_colored_path)$(_git_prompt_color $(_git_prompt_info)) $(_grey "]") '
+export PS1='$(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")'
