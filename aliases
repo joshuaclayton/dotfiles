@@ -1,7 +1,6 @@
 alias ss="script/server"
 alias sc='script/console'
 alias gbr='git branch -r'
-alias bp="cd '$HOME/Sites/plugins/blueprint-css/lib/'; ruby compress.rb"
 alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare"
 alias tf="ruby_test functional"
 alias tu="ruby_test unit"
