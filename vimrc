@@ -155,3 +155,7 @@ map <silent> <leader>rb :RunAllRubyTests<CR>
 map <silent> <leader>rc :RunRubyFocusedContext<CR>
 map <silent> <leader>rf :RunRubyFocusedUnitTest<CR>
 map <silent> <C-h> ^cw
+
+nmap <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
+nmap <F3> :source ~/.vim_session <cr>     " And load session with F3
+
