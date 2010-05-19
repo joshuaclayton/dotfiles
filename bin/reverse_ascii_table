@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+lines = STDIN.readlines
+lines.reverse.each {|line| print line }

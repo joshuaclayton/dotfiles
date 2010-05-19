@@ -14,3 +14,4 @@ Snippet visit When I visit <{}>
 Snippet exist Given a <{factory}> exists with a <{attribute}> of "<{}>"
 
 vmap <buffer> <C-A> !align_ascii_table<CR>
+vmap <buffer> <C-R> !reverse_ascii_table<CR>
