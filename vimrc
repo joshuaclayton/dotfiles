@@ -154,12 +154,11 @@ set gfn=Inconsolata:h22
 " Custom settings / bindings
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
-:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 map <silent> <leader>rb :RunAllRubyTests<CR>
 map <silent> <leader>rc :RunRubyFocusedContext<CR>
 map <silent> <leader>rf :RunRubyFocusedUnitTest<CR>
 map <silent> <C-h> ^cw
 
-nmap <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
-nmap <F3> :source ~/.vim_session <cr>     " And load session with F3
-
+nmap <F2> :mksession! ~/.vim_session <CR> " Quick write session with F2
+nmap <F3> :source ~/.vim_session <CR>     " And load session with F3
