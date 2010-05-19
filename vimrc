@@ -106,6 +106,10 @@ map <Leader>sf :RSfunctionaltest
 command! Rroutes :e config/routes.rb
 command! RTroutes :tabe config/routes.rb
 
+" Edit factories
+command! Rfactories :e spec/factories.rb
+command! RTfactories :tabe spec/factories.rb
+
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
 
