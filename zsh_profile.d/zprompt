@@ -55,13 +55,17 @@ _color() {
     echo "%{$fg_bold[$2]%}$1%{$reset_color%}"
   fi
 }
+
+_always_run() {
+  echo `pwd` > ~/.current_project
+}
 _separate()               { if [ -n "$1" ]; then echo " $1"; fi }
 _white()                  { echo "$(_color "$1" white)" }
 _grey()                   { echo "$(_color "$1" grey)" }
 _yellow()                 { echo "$(_color "$1" yellow)" }
 
 _bracket_wrap()           { echo "$(_grey "[") $1 $(_grey "]") " }
-_basic()                  { echo "%n $(_colored_path)" }
+_basic()                  { $(_always_run); echo "%n $(_colored_path)" }
 _colored_path()           { echo "$(_white "%~")" }
 _colored_git_branch()     { echo "$(_git_prompt_color "$(_git_prompt_info)")" }
 _colored_git_difference() { echo "$(_yellow "$(_git_difference_from_track)")" }
