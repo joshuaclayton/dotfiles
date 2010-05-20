@@ -149,7 +149,7 @@ set wildmode=list:longest,list:full
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
-set gfn=Inconsolata:h22
+set gfn=Inconsolata:h20
 
 " Custom settings / bindings
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
