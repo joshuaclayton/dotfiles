@@ -7,11 +7,11 @@ _git_prompt_info() {
 
 _git_status() {
   git_status=$(git status 2> /dev/null)
-  if [ -n "$(echo $git_status | grep 'Changed but not updated')" ]; then
+  if [ -n "$(echo $git_status | grep "Changed but not updated")" ]; then
     echo "changed"
-  elif [ -n "$(echo $git_status | grep 'Changes to be committed')" ]; then
+  elif [ -n "$(echo $git_status | grep "Changes to be committed")" ]; then
     echo "pending"
-  elif [ -n "$(echo $git_status | grep 'Untracked files')" ]; then
+  elif [ -n "$(echo $git_status | grep "Untracked files")" ]; then
     echo "untracked"
   else
     echo "unchanged"
@@ -21,15 +21,15 @@ _git_status() {
 _git_difference_from_track() {
   git_status=$(git status 2> /dev/null)
 
-  if [ -n "$(echo $git_status | grep 'Your branch is behind')" ]; then
-    difference='-'
-  elif [ -n "$(echo $git_status | grep 'Your branch is ahead of')" ]; then
-    difference='+'
+  if [ -n "$(echo $git_status | grep "Your branch is behind")" ]; then
+    difference="-"
+  elif [ -n "$(echo $git_status | grep "Your branch is ahead of")" ]; then
+    difference="+"
   fi
 
   if [ -n $difference ]; then
-    difference+=$(echo $git_status | grep 'Your branch is' | sed 's/[^0-9]//g')
-    echo "$difference"
+    difference+=$(echo $git_status | grep "Your branch is" | sed "s/[^0-9]//g")
+    echo $difference
   fi
 }
 
@@ -57,7 +57,7 @@ _color() {
 }
 
 _always_run() {
-  echo `pwd` > ~/.current_project
+  echo $(pwd) > ~/.current_project
 }
 _separate()               { if [ -n "$1" ]; then echo " $1"; fi }
 _white()                  { echo "$(_color "$1" white)" }

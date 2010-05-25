@@ -2,7 +2,7 @@
 # works with tu/tf aliases
 _ruby_tests() {
   if [[ -n $words[2] ]]; then
-    compadd `ruby_test -l ${words[2]}`
+    compadd $(ruby_test -l ${words[2]})
   fi
 }
 compdef _ruby_tests ruby_test
@@ -11,7 +11,7 @@ compdef _ruby_tests ruby_test
 # works with sm/sc aliases
 _ruby_specs() {
   if [[ -n $words[2] ]]; then
-    compadd `TEST=spec ruby_test -l ${words[2]}`
+    compadd $(TEST=spec ruby_test -l ${words[2]})
   fi
 }
 compdef _ruby_specs ruby_test
@@ -25,14 +25,14 @@ _git_remote_branch() {
     elif (( CURRENT == 3 )); then
       if [[ $words[2] == "publish" ]]; then
         # second arg: local branch name
-        compadd `git branch -l | sed "s/[ \*]//g"`
+        compadd $(git branch -l | sed "s/[ \*]//g")
       else;
         # second arg: remote branch name
-        compadd `git branch -r | grep -v HEAD | sed "s/.*\///" | sed "s/ //g"`
+        compadd $(git branch -r | grep -v HEAD | sed "s/.*\///" | sed "s/ //g")
       fi
     elif (( CURRENT == 4 )); then
       # third arg: remote name
-      compadd `git remote`
+      compadd $(git remote)
     fi
   else;
     _files
@@ -42,7 +42,7 @@ compdef _git_remote_branch grb
 
 # autocompletion for cuc
 _cucumber_features() {
-  compadd `ls features/**/*.feature | sed "s/features\/\(.*\).feature/\1/"`
+  compadd $(ls features/**/*.feature | sed "s/features\/\(.*\).feature/\1/")
 }
 compdef _cucumber_features cuc
 

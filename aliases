@@ -1,21 +1,21 @@
 alias ss="script/server"
-alias cs='script/console'
-alias gbr='git branch -r'
-alias gcm='git checkout master'
+alias cs="script/console"
+alias gbr="git branch -r"
+alias gcm="git checkout master"
 alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare"
 alias tf="ruby_test functional"
 alias tu="ruby_test unit"
 alias sc="TEST=spec ruby_test controllers"
 alias sm="TEST=spec ruby_test models"
-alias ..='cd ../'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias stop_mysql='launchctl unload -w $HOME/.homebrew/Cellar/mysql/5.1.45/com.mysql.mysqld.plist'
-alias start_mysql='launchctl load -w $HOME/.homebrew/Cellar/mysql/5.1.45/com.mysql.mysqld.plist'
-alias start_redis='redis-server $HOME/.homebrew/etc/redis.conf'
-alias current_ruby='which ruby gem irb rake'
+alias ..="cd ../"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias stop_mysql="launchctl unload -w $HOME/.homebrew/Cellar/mysql/5.1.45/com.mysql.mysqld.plist"
+alias start_mysql="launchctl load -w $HOME/.homebrew/Cellar/mysql/5.1.45/com.mysql.mysqld.plist"
+alias start_redis="redis-server $HOME/.homebrew/etc/redis.conf"
+alias current_ruby="which ruby gem irb rake"
 alias o="mvim ."
 alias dotf="cd ~/.dotfiles"
-alias do_it='rake git:push:staging && cap staging deploy'
-alias do_it_live='rake git:push:production && cap production deploy'
+alias do_it="rake git:push:staging && cap staging deploy"
+alias do_it_live="rake git:push:production && cap production deploy"

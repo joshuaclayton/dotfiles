@@ -14,7 +14,7 @@ export EDITOR=vim
 source $HOME/.zlogin
 source $HOME/.aliases
 
-for a in `ls $HOME/.zsh_profile.d/*`; do
+for a in $(ls $HOME/.zsh_profile.d/*); do
   source $a
 done
 
