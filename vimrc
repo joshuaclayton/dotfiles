@@ -103,12 +103,12 @@ map <Leader>su :RSunittest
 map <Leader>sf :RSfunctionaltest
 
 " Edit routes
-command! Rroutes :e config/routes.rb
-command! RTroutes :tabe config/routes.rb
+command! Rroutes :Redit config/routes.rb
+command! RTroutes :RTedit config/routes.rb
 
 " Edit factories
-command! Rfactories :e spec/factories.rb
-command! RTfactories :tabe spec/factories.rb
+command! Rfactories :Redit spec/factories.rb
+command! RTfactories :RTedit spec/factories.rb
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
