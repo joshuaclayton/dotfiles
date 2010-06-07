@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+percent_resize = ARGV.first || 25
+
+Dir.glob("*.{jpg,JPG}").each do |jpeg_file|
+  full_path = File.expand_path(jpeg_file)
+  unless full_path =~ /web\.jpg$/i
+    new_path = full_path.gsub(/\.jpg$/, "web.jpg").gsub(/\.JPG$/, "web.JPG")
+
+    command = %(convert -resize "#{percent_resize}%" "#{full_path}" "#{new_path}")
+    puts command
+    %x{#{command}}
+  end
+end
