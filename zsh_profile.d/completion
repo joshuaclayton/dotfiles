@@ -66,3 +66,9 @@ _rake () {
 }
 
 compdef _rake rake
+
+_thor () {
+  compadd $(thor -T | grep "thor " | sed "s/thor \(.*\)\(#.*\)/\1/" | sed "s/<.*>//" | sed "s/ *$//")
+}
+
+compdef _thor thor
