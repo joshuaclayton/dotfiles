@@ -1,6 +1,6 @@
 alias ss="script/server"
 alias cs="script/console"
-alias gbr="git branch -r"
+alias gbr="git remote prune origin && git branch -r"
 alias gcm="git checkout master"
 alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare"
 alias tf="ruby_test functional"
