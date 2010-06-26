@@ -15,6 +15,11 @@ set incsearch     " do incremental searching
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+" Use Ack instead of Grep when available
+if executable("ack")
+  set grepprg=ack\ -H\ --nogroup
+endif
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -75,9 +80,36 @@ endif
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-" Always display the status line
 set laststatus=2
+
+nmap <F1> <Esc> " No help
+
+set list listchars=tab:»·,trail:·
+
+" Color scheme
+colorscheme customtwilight
+
+" Numbers
+set number
+set numberwidth=5
+
+" Words
+set iskeyword-=_
+set gdefault
+set shiftround
+
+" GUI
+set guioptions-=T
+set gfn=Inconsolata:h20
+
+" Tab completion options
+" (only complete to the longest unambiguous match, and show a menu)
+set completeopt=longest,menu
+set wildmode=list:longest,list:full
+
+" case only matters with mixed case expressions
+set ignorecase
+set smartcase
 
 " \ is the leader character
 let mapleader = "\\"
@@ -89,18 +121,9 @@ map <Leader>R :e doc/README_FOR_APP<CR>
 map <Leader>m :Rmodel
 map <Leader>c :Rcontroller
 map <Leader>v :Rview
-map <Leader>u :Runittest
-map <Leader>f :Rfunctionaltest
 map <Leader>tm :RTmodel
 map <Leader>tc :RTcontroller
 map <Leader>tv :RTview
-map <Leader>tu :RTunittest
-map <Leader>tf :RTfunctionaltest
-map <Leader>sm :RSmodel
-map <Leader>sc :RScontroller
-map <Leader>sv :RSview
-map <Leader>su :RSunittest
-map <Leader>sf :RSfunctionaltest
 
 " Edit routes
 command! Rroutes :Redit config/routes.rb
@@ -113,54 +136,24 @@ command! RTfactories :RTedit spec/factories.rb
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
 
-" Maps autocomplete to tab
-imap <Tab> <C-N>
+imap <Tab> <C-N> " Maps autocomplete to tab
 
 " Duplicate a selection
 " Visual mode: D
 vmap D y'>p
 
-" No Help, please
-nmap <F1> <Esc>
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·
-
-" Use Ack instead of Grep when available
-if executable("ack")
-  set grepprg=ack\ -H\ --nogroup
-endif
-
-" Color scheme
-colorscheme customtwilight
-
-" Numbers
-set number
-set numberwidth=5
-
 " Snippets are activated by Shift+Tab
 let g:snippetsEmu_key = "<S-Tab>"
 
-" Tab completion options
-" (only complete to the longest unambiguous match, and show a menu)
-set completeopt=longest,menu
-set wildmode=list:longest,list:full
-
-" case only matters with mixed case expressions
-set ignorecase
-set smartcase
-set gfn=Inconsolata:h20
-
 " Custom settings / bindings
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-
+map <leader>x :bd<CR>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 map <silent> <leader>rb :RunAllRubyTests<CR>
 map <silent> <leader>rc :RunRubyFocusedContext<CR>
 map <silent> <leader>rf :RunRubyFocusedUnitTest<CR>
 map <silent> <C-h> ^cw
 
+" Session management
 nmap <F2> :mksession! ~/.vim_session <CR> " Quick write session with F2
 nmap <F3> :source ~/.vim_session <CR>     " And load session with F3
-
-set guioptions-=T
