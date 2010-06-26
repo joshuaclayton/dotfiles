@@ -72,3 +72,9 @@ _thor () {
 }
 
 compdef _thor thor
+
+_brew () {
+  compadd $(brew | grep "  \w" | sed "s/  \(\.*\)/\1/" | sed "s/ .*//")
+}
+
+compdef _brew brew
