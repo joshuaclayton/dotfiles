@@ -136,7 +136,8 @@ command! RTfactories :RTedit spec/factories.rb
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
 
-imap <Tab> <C-N> " Maps autocomplete to tab
+" Maps autocomplete to tab
+imap <Tab> <C-N>
 
 " Duplicate a selection
 " Visual mode: D
