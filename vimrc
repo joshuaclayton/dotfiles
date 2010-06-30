@@ -94,7 +94,6 @@ set number
 set numberwidth=5
 
 " Words
-set iskeyword-=_
 set gdefault
 set shiftround
 
