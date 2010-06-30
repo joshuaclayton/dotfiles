@@ -15,9 +15,9 @@ class FileSystem < Thor
     end
   end
 
-  desc "clear_site_logs", "clean out log files within the ~/Sites directory"
+  desc "clear_site_logs", "clean out log files within the ~/dev directory"
   def clear_site_logs
-    Dir.glob("#{ENV["HOME"]}/Sites/**/log/*.log").each do |log_file|
+    Dir.glob("#{ENV["HOME"]}/dev/**/log/*.log").each do |log_file|
       puts "Deleting #{log_file}"
       File.delete(log_file)
     end
