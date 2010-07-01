@@ -13,6 +13,8 @@ alias do_it_live="rake git:push:production && cap production deploy"
 # git
 alias gbr="git remote prune origin && git branch -r"
 alias gcm="git checkout master"
+alias gp="git pull"
+alias gpr="git pull --rebase"
 
 # filesystem
 alias ..="cd ../"
