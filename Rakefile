@@ -20,7 +20,7 @@ task :install do
   home = ENV['HOME']
   pwd = File.dirname(__FILE__)
 
-  %w(ackrc gemrc vimrc vim irbrc irbrc.d inputrc zlogin zshrc zsh_profile.d aliases tmux.conf).each do |file|
+  %w(ackrc gemrc vimrc vim irbrc irbrc.d inputrc zlogin zshrc zsh_profile.d aliases tmux.conf zshenv).each do |file|
     symlink("#{pwd}/#{file}", "#{home}/.#{file}")
   end
 end
