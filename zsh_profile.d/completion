@@ -68,6 +68,7 @@ _rake () {
 compdef _rake rake
 
 _thor () {
+  export THOR_COLUMNS=200
   compadd $(thor list | grep "thor " | cut -d " " -f 2)
 }
 
