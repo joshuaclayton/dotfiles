@@ -8,6 +8,10 @@ export CLICOLOR=1
 # expand functions in the prompt
 setopt prompt_subst
 
-if [[ -f ~/.current_project ]]; then
-  cd $(cat ~/.current_project)
-fi
+current () {
+  if [[ -f ~/.current_project ]]; then
+    cd $(cat ~/.current_project)
+  fi
+}
+
+current
