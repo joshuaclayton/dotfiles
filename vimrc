@@ -100,6 +100,7 @@ set shiftround
 " GUI
 set guioptions-=T
 set gfn=Inconsolata:h20
+set clipboard=unnamed
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
