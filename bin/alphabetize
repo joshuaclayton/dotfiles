@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+lines = STDIN.readlines
+puts lines.sort.join
