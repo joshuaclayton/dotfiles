@@ -160,3 +160,10 @@ nmap <F2> :mksession! ~/.vim_session <CR> " Quick write session with F2
 nmap <F3> :source ~/.vim_session <CR>     " And load session with F3
 
 vmap <buffer> <C-T> !alphabetize<CR>
+
+" Unbind the cursor keys in insert, normal and visual modes.
+for prefix in ['i', 'n', 'v']
+  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+    exe prefix . "noremap " . key . " <Nop>"
+  endfor
+endfor
