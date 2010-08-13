@@ -111,6 +111,17 @@ set wildmode=list:longest,list:full
 set ignorecase
 set smartcase
 
+" Edit routes
+command! Rroutes :Redit config/routes.rb
+command! RTroutes :RTedit config/routes.rb
+
+" Edit factories
+command! Rfactories :Redit spec/factories.rb
+command! RTfactories :RTedit spec/factories.rb
+
+" Snippets are activated by Shift+Tab
+let g:snippetsEmu_key = "<S-Tab>"
+
 " \ is the leader character
 let mapleader = "\\"
 
@@ -125,14 +136,6 @@ map <Leader>tm :RTmodel
 map <Leader>tc :RTcontroller
 map <Leader>tv :RTview
 
-" Edit routes
-command! Rroutes :Redit config/routes.rb
-command! RTroutes :RTedit config/routes.rb
-
-" Edit factories
-command! Rfactories :Redit spec/factories.rb
-command! RTfactories :RTedit spec/factories.rb
-
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
 
@@ -143,16 +146,10 @@ imap <Tab> <C-N>
 " Visual mode: D
 vmap D y'>p
 
-" Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
-
 " Custom settings / bindings
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>x :bd<CR>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
-map <silent> <leader>rb :RunAllRubyTests<CR>
-map <silent> <leader>rc :RunRubyFocusedContext<CR>
-map <silent> <leader>rf :RunRubyFocusedUnitTest<CR>
 map <silent> <C-h> ^cw
 
 " Session management
