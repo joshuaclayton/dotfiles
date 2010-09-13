@@ -28,3 +28,13 @@ setopt histignoredups
 export HISTSIZE=200
 
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+
+      # Add the following to your ~/.bashrc or ~/.zshrc
+      hitch() {
+        command hitch "$@"
+        if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+      }
+      alias unhitch='hitch -u'
+      # Uncomment to persist pair info between terminal instances
+      # hitch
+
