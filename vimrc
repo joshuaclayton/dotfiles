@@ -87,7 +87,7 @@ nmap <F1> <Esc> " No help
 set list listchars=tab:»·,trail:·
 
 " Color scheme
-colorscheme customtwilight
+colorscheme github
 
 " Numbers
 set number
@@ -99,7 +99,8 @@ set shiftround
 
 " GUI
 set guioptions-=T
-set gfn=Inconsolata:h20
+" set gfn=Inconsolata:h20
+set gfn=Menlo:h21
 set clipboard=unnamed
 
 " Tab completion options
@@ -157,3 +158,12 @@ nmap <F2> :mksession! ~/.vim_session <CR> " Quick write session with F2
 nmap <F3> :source ~/.vim_session <CR>     " And load session with F3
 
 vmap <buffer> <C-T> !alphabetize<CR>
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
