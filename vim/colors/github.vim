@@ -138,7 +138,15 @@ hi TabLineSel   guifg=#404040 gui=bold
 "
 " vim: sw=4 ts=4 foldmethod=marker
 
+"
+" customizations
+"
 match Error /\%80v.\+/
 
 hi SpecialKey guifg=white guibg=#ff1100 gui=none
 hi Error gui=none
+hi link rubyStringDelimiter String
+hi link rubyInterpolationDelimiter String
+hi Comment gui=italic
+hi LineNr guifg=#BBBBBB gui=none
+hi StatusLineNC guibg=#ECECEC guifg=#bbbbbb gui=italic
