@@ -150,3 +150,4 @@ hi link rubyInterpolationDelimiter String
 hi Comment gui=italic
 hi LineNr guifg=#BBBBBB gui=none
 hi StatusLineNC guibg=#ECECEC guifg=#bbbbbb gui=italic
+hi cucumberTags guibg=#ffff66 guifg=#333333 gui=bold
