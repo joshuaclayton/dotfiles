@@ -108,7 +108,8 @@ set clipboard=unnamed
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
-set completeopt=longest,menu
+set completeopt=longest,menu,preview
+set complete=.,w,b,u,t
 set wildmode=list:longest,list:full
 
 " case only matters with mixed case expressions
@@ -149,6 +150,9 @@ imap <Tab> <C-N>
 " Duplicate a selection
 " Visual mode: D
 vmap D y'>p
+
+" because escape is too far away
+imap jj <ESC>
 
 " Custom settings / bindings
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
