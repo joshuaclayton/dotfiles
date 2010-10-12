@@ -102,8 +102,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 
-" set gfn=Inconsolata:h20
-set gfn=Bitstream\ Vera\ Sans\ Mono:h21
+set gfn=Bitstream\ Vera\ Sans\ Mono:h24
 set clipboard=unnamed
 
 " Tab completion options
