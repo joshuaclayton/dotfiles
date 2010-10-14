@@ -21,12 +21,6 @@ bindkey -v
 # use incremental search
 bindkey ^R history-incremental-search-backward
 
-# ignore duplicate history entries
-setopt histignoredups
-
-# keep more history
-export HISTSIZE=200
-
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
 hitch() {
