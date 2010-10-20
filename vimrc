@@ -96,6 +96,7 @@ set numberwidth=5
 " Words
 set gdefault
 set shiftround
+set nowrap
 
 " GUI
 set guioptions-=T
@@ -107,9 +108,9 @@ set clipboard=unnamed
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
-set completeopt=longest,menu,preview
+set completeopt=longest,menu
 set complete=.,w,b,u,t
-set wildmode=list:longest,list:full
+set wildmode=longest,list:longest
 
 " case only matters with mixed case expressions
 set ignorecase
@@ -155,15 +156,12 @@ imap jj <ESC>
 
 " Custom settings / bindings
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-map <leader>x :bd<CR>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 map <silent> <C-h> ^cw
 
 " Session management
 nmap <F2> :mksession! ~/.vim_session <CR> " Quick write session with F2
 nmap <F3> :source ~/.vim_session <CR>     " And load session with F3
-
-vmap <buffer> <C-T> !alphabetize<CR>
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
