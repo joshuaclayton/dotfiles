@@ -53,9 +53,9 @@ if has("autocmd")
 
   augroup END
 
-  autocmd WinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-
+  " autocmd WinEnter * setlocal cursorline
+  " autocmd WinLeave * setlocal nocursorline
+  autocmd BufWinLeave * call clearmatches()
   " turn syntax highlighting on all the friggin' time;
   " that way, chars > 80 get highlighted always
   autocmd BufRead,BufNewFile * :syntax on
@@ -87,7 +87,7 @@ nmap <F1> <Esc> " No help
 set list listchars=tab:»·,trail:·
 
 " Color scheme
-colorscheme github
+colorscheme customgithub
 
 " Numbers
 set number
@@ -171,3 +171,5 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+set cursorline
