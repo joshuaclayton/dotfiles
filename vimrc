@@ -53,8 +53,8 @@ if has("autocmd")
 
   augroup END
 
-  " autocmd WinEnter * setlocal cursorline
-  " autocmd WinLeave * setlocal nocursorline
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
   autocmd BufWinLeave * call clearmatches()
   " turn syntax highlighting on all the friggin' time;
   " that way, chars > 80 get highlighted always
