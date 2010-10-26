@@ -21,7 +21,7 @@ alias ..="cd ../"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias o="mvim ."
+alias o="vim"
 alias dotf="cd $HOME/.dotfiles"
 
 # services
