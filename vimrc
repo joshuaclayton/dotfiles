@@ -87,7 +87,9 @@ nmap <F1> <Esc> " No help
 set list listchars=tab:»·,trail:·
 
 " Color scheme
+set t_Co=256
 colorscheme customgithub
+match Error /\%80v.\+/
 
 " Numbers
 set number
