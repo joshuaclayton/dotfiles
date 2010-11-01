@@ -9,6 +9,7 @@ alias sm="TEST=spec ruby_test models"
 alias current_ruby="which ruby gem irb rake"
 alias do_it="rake git:push:staging && cap staging deploy"
 alias do_it_live="rake git:push:production && cap production deploy"
+alias bes="bundle exec spec"
 
 # git
 alias gbr="git remote prune origin && git branch -r"
