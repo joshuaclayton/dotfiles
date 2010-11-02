@@ -1,4 +1,0 @@
-#!/bin/sh
-
-$(which offlineimap) -o -c $HOME/.offlineimaprc -u Noninteractive.Quiet
-exit 0
