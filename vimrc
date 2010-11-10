@@ -175,3 +175,9 @@ function! <SID>SynStack()
 endfunc
 
 set cursorline
+
+for prefix in ['i', 'n', 'v']
+  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+    exe prefix . "noremap " . key . " <Nop>"
+  endfor
+endfor
