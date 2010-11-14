@@ -163,6 +163,7 @@ imap jj <ESC>
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 map <silent> <C-h> ^cw
+vmap <silent> <C-c> :write! ~/.current-output <CR>
 
 " Session management
 nmap <F2> :mksession! ~/.vim_session <CR> " Quick write session with F2
