@@ -106,7 +106,10 @@ set guioptions-=r
 set guioptions-=L
 
 set gfn=Bitstream\ Vera\ Sans\ Mono:h24
-" set clipboard=unnamed
+
+if has("gui_running")
+  set clipboard=unnamed
+endif
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
