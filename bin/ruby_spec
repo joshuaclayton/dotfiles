@@ -1,0 +1,93 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+class SpecFinder
+  attr_reader :prefix
+  def initialize(prefix)
+    @prefix = prefix
+  end
+
+
+  def name_to_file(name, line = nil)
+    file = "#{prefix}/#{name}_spec.rb"
+    file << ":#{line}" if line
+    file
+  end
+
+  def file_to_name(file)
+    file.sub(%r{^#{Regexp.escape(prefix)}/}, "").sub(%r{_spec\.rb$}, "")
+  end
+
+  def spec_files
+    @spec_files ||= Dir["#{prefix}/**/*_spec.rb"]
+  end
+
+  def spec_names
+    @spec_names ||= spec_files.collect {|file| file_to_name(file) }
+  end
+
+  def run(specs)
+    if specs.empty?
+      if spec_files.empty?
+        puts "Nothing to do."
+      else
+        run(spec_files)
+      end
+    else
+      specs = specs.collect {|spec| force_spec_file(spec) }
+      command = command_to_run(specs)
+      puts command
+      exec command
+    end
+  end
+
+  def list
+    puts spec_names.sort.join("\n")
+  end
+
+  private
+
+  def force_spec_file(spec_and_line)
+    spec, line = spec_and_line.split(":")
+    if spec_files.include?(spec)
+      spec_and_line
+    elsif spec_names.include?(spec)
+      name_to_file(spec, line)
+    else
+      raise "No such spec: #{spec.inspect}"
+    end
+  end
+
+  def command_to_run(files)
+    files_string = files.join(" ")
+    "#{script_to_run} #{files_string}"
+  end
+
+  def script_to_run
+    if File.exist?("Gemfile")
+      rspec_exec = if File.new("Gemfile").read =~ /rspec-core/
+                     "rspec"
+                   else
+                     "spec"
+                   end
+      "bundle exec #{rspec_exec}"
+    elsif File.exist?("script/spec")
+      "script/spec"
+    else
+      "spec"
+    end
+  end
+end
+
+list = ARGV.delete("-l") || ARGV.delete("--list")
+prefix = ARGV.shift
+prefix = prefix ? "spec/#{prefix}" : "spec"
+finder = SpecFinder.new(prefix)
+specs = ARGV.dup
+
+if list
+  finder.list
+else
+  finder.run(specs)
+end

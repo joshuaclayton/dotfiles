@@ -3,30 +3,31 @@
 require "fileutils"
 
 class TestFinder
-  attr_reader :prefix, :test_type
 
-  def initialize(prefix, test_type = nil)
-    @prefix = prefix
-    @test_type = test_type || "test"
+  attr_reader :prefix
+
+  def initialize(prefix)
+    @prefix  = prefix
   end
 
+
   def name_to_file(name)
-    "#{prefix}/#{name}_#{test_type}.rb"
+    "#{prefix}/#{name}_test.rb"
   end
 
   def file_to_name(file)
-    file.sub(%r{^#{Regexp.escape(prefix)}/}, "").sub(%r{_#{test_type}\.rb$}, "")
+    file.sub(%r{^#{Regexp.escape(prefix)}/}, "").sub(%r{_test\.rb$}, "")
   end
 
   def test_files
-    @test_files ||= Dir["#{prefix}/**/*_#{test_type}.rb"]
+    @test_files ||= Dir["#{prefix}/**/*_test.rb"]
   end
 
   def test_names
     @test_names ||= test_files.collect {|file| file_to_name(file) }
   end
 
-  def run(tests)
+  def run(tests, pattern)
     if tests.empty?
       if test_files.empty?
         puts "Nothing to do."
@@ -35,7 +36,7 @@ class TestFinder
       end
     else
       tests = tests.collect {|test| force_test_file(test) }
-      command = command_to_run(tests)
+      command = command_to_run(tests, pattern)
       puts command
       exec command
     end
@@ -43,18 +44,6 @@ class TestFinder
 
   def list
     puts test_names.sort.join("\n")
-  end
-
-  def command_to_run(files)
-    if self.test_type == "test"
-      files_string = files.inspect
-      require_string = 'require "#{f}"'
-      %{ruby -Itest -e '#{files_string}.each {|f| #{require_string} }'}
-    elsif self.test_type == "spec"
-      %{spec #{files.join(" ")} --options spec/spec.opts}
-    else
-      ""
-    end
   end
 
   private
@@ -68,18 +57,39 @@ class TestFinder
       raise "No such test: #{test.inspect}"
     end
   end
+
+  def command_to_run(files, pattern)
+    files_string = files.inspect
+    require_string = "require '#{f}'"
+    command_arguments = %w(-Itest -e)
+    command_arguments << "#{files_string}.each {|f| #{require_string} }"
+    if pattern != ""
+      command_arguments << "--" << "-n" << "/#{pattern}/"
+    end
+    exec("ruby", *command_arguments)
+  end
 end
 
-list   = ARGV.delete("-l") || ARGV.delete("--list")
+list = ARGV.delete("-l") || ARGV.delete("--list")
 prefix = ARGV.shift
-
-root   = ENV["TEST"].nil? ? "test" : ENV["TEST"]
-prefix = prefix ? "#{root}/#{prefix}" : root
-finder = TestFinder.new(prefix, root)
-tests  = ARGV.dup
+prefix = prefix ? "test/#{prefix}" : "test"
+finder = TestFinder.new(prefix)
+args = ARGV.dup
 
 if list
   finder.list
 else
-  finder.run(tests)
+  pattern = []
+  tests   = []
+
+  ARGV.each do |arg|
+    if pattern.size > 0 || arg =~ /^\//
+      pattern << arg.sub(/^\//, "")
+    else
+      tests << arg
+    end
+  end
+  pattern = pattern.join(" ")
+
+  finder.run(tests, pattern)
 end
