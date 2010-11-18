@@ -185,3 +185,5 @@ for prefix in ['i', 'n', 'v']
     exe prefix . "noremap " . key . " <Nop>"
   endfor
 endfor
+
+call pathogen#runtime_append_all_bundles()
