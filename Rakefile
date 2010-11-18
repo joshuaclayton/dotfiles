@@ -1,43 +1,57 @@
-def stop_error(message)
-  puts "ERROR: #{message}"
-  exit 1
-end
-
 def symlink(target, link)
   puts "Linking #{link} => #{target}"
+
   if File.symlink?(link)
-    puts "  * deleting existing symlink #{link}"
-    File.unlink(link)
+    unlink(link)
   elsif File.exist?(link)
-    stop_error("File exists: #{link}")
+    puts "ERROR: File exists: #{link}"
+    exit 1
   end
   File.symlink(target, link)
-  puts
 end
+
+def delete_symlink(link)
+  unlink(link) if File.symlink?(link)
+end
+
+def unlink(link)
+  if File.exist?(link)
+    descriptor = File.symlink?(link) ? "symlink" : "file"
+    puts "Deleting #{descriptor} #{link}"
+    File.unlink(link)
+  end
+end
+
+def pwd; File.dirname(__FILE__); end
 
 def target_path(file)
   File.join(ENV["HOME"], ".#{file}")
 end
 
-def existing_path(file)
-  File.join(File.dirname(__FILE__), file)
-end
-
-files = %w(ackrc gemrc vimrc vim irbrc irbrc.d inputrc zlogin zshrc
-           zsh_profile.d aliases tmux.conf zshenv muttrc offlineimaprc)
+files = File.new(File.join(pwd, "MANIFEST"), "r").read.split("\n")
 
 desc "Install all dotfiles"
-task :install do
-  `git submodule init`
-  `git submodule update`
+task :install => [:init_submodules, :update_submodules] do
   files.each do |file|
-    symlink(existing_path(file), target_path(file))
+    symlink(File.join(pwd, file), target_path(file))
   end
 end
 
 desc "Remove all dotfies"
 task :uninstall do
   files.each do |file|
-    File.unlink(target_path(file)) if File.symlink?(target_path(file))
+    unlink(target_path(file))
   end
+end
+
+desc "Install submodules"
+task :init_submodules do
+  puts "Installing submodules"
+  `git submodule init`
+end
+
+desc "Update submodules"
+task :update_submodules do
+  puts "Updating submodules"
+  `git submodule update`
 end
