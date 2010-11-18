@@ -25,3 +25,18 @@
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/textile"]
+	path = vim/bundle/textile
+	url = https://github.com/timcharper/textile.vim.git
+[submodule "vim/bundle/NERD_tree"]
+	path = vim/bundle/NERD_tree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/snippetsEmu"]
+	path = vim/bundle/snippetsEmu
+	url = https://github.com/vim-scripts/snippetsEmu.git
+[submodule "vim/bundle/matchit"]
+	path = vim/bundle/matchit
+	url = https://github.com/vim-scripts/matchit.zip.git
+[submodule "vim/bundle/taglist"]
+	path = vim/bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
