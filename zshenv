@@ -1,2 +1,1 @@
-export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/.dotfiles/bin:$HOME/.dotfiles/sbin:$HOME/.homebrew/bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:/usr/local/bin:$PATH"

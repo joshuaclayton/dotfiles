@@ -25,10 +25,4 @@ alias o="vim"
 alias dotf="cd $HOME/.dotfiles"
 
 # services
-CELLAR="$HOME/.homebrew/Cellar"
-alias stop_mysql="launchctl unload -w $CELLAR/mysql/5.1.48/com.mysql.mysqld.plist"
-alias start_mysql="launchctl load -w $CELLAR/mysql/5.1.48/com.mysql.mysqld.plist"
-alias stop_postgres="launchctl unload -w $CELLAR/postgresql/8.4.4/org.postgresql.postgres.plist"
-alias start_postgres="launchctl load -w $CELLAR/postgresql/8.4.4/org.postgresql.postgres.plist"
-alias start_redis="redis-server $HOME/.homebrew/etc/redis.conf"
 alias nick="mplayer ~/Music/Theme\ Music/528491.wav > /dev/null 2>&1"
