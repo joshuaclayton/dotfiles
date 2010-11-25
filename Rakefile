@@ -55,3 +55,16 @@ task :update_submodules do
   puts "Updating submodules"
   `git submodule update`
 end
+
+desc "Pull in new vim submodules"
+task :pull_vim_submodules do
+  puts "Pull vim submodules"
+  system(%{
+    for x in vim/bundle/*; do
+      echo $x
+      cd $x
+      git co master && git pull
+      cd ../../..
+    done
+  })
+end
