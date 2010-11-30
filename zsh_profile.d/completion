@@ -74,6 +74,25 @@ _thor () {
 
 compdef _thor thor
 
+# if using rvm, add rvm_leave_gem_alone=1 to ~/.rvmrc
+_gem () {
+  if ((CURRENT == 2)); then
+    compadd $(gem help commands | grep '^    ' | awk '{print $1}')
+  elif ((CURRENT == 3)); then
+    if [[ $words[2] == "install" ]]; then
+      if [ ! -f ~/.remote-gem-cache ]; then
+        $(gem list -r > ~/.remote-gem-cache)
+      fi
+      compadd $(cat ~/.remote-gem-cache | grep "(" | awk '{print $1}')
+    elif [[ $words[2] == "uninstall" || $words[2] == "which" || $words[2] == "update" || $words[2] == "dependency" ]]; then
+      compadd $(gem list | grep "(" | awk '{print $1}')
+    else;
+    fi
+  fi
+}
+
+compdef _gem gem
+
 _brew () {
   if ((CURRENT == 2)); then
     compadd install uninstall
