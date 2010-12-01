@@ -14,7 +14,7 @@ bindkey -v
 
 # use incremental search
 bindkey ^R history-incremental-search-backward
-
+setopt correct
 
 source $HOME/.zlogin
 source $HOME/.aliases
