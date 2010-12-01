@@ -4,6 +4,7 @@ compinit
 
 # automatically enter directories without cd
 setopt auto_cd
+cdpath=(. ~/dev/personal ~/dev/thoughtbot ~/dev/gems)
 
 # use vim as an editor
 export EDITOR=vim
