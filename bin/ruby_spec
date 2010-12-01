@@ -66,7 +66,7 @@ class SpecFinder
 
   def script_to_run
     if File.exist?("Gemfile")
-      rspec_exec = if File.new("Gemfile").read =~ /rspec-core/
+      rspec_exec = if File.new("Gemfile").read =~ /rspec.*2\./
                      "rspec"
                    else
                      "spec"
