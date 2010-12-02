@@ -1,3 +1,6 @@
+autoload -U compinit
+compinit
+
 # autocompletion for ruby_test
 # works with tu/tf aliases
 _ruby_tests() {
