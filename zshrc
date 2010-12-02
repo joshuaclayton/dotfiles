@@ -1,4 +1,3 @@
-source $HOME/.zlogin
 source $HOME/.aliasrc
 
 for a in $HOME/.zsh_profile.d/*; do
