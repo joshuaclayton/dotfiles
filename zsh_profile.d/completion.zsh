@@ -1,3 +1,6 @@
+# expand functions in the prompt
+setopt prompt_subst
+
 autoload -U compinit
 compinit
 
