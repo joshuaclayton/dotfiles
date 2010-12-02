@@ -1,9 +1,3 @@
-# use vim as an editor
-export EDITOR=vim
-
-# vi mode
-bindkey -v
-
 source $HOME/.zlogin
 source $HOME/.aliases
 
