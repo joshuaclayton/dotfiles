@@ -8,7 +8,7 @@ inputrc
 zlogin
 zshrc
 zsh_profile.d
-aliases
+aliasrc
 tmux.conf
 zshenv
 muttrc
