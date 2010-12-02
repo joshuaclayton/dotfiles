@@ -187,3 +187,5 @@ for prefix in ['i', 'n', 'v']
 endfor
 
 call pathogen#runtime_append_all_bundles()
+
+let g:rails_ctags_arguments = "`gem env gemdir`/gems"
