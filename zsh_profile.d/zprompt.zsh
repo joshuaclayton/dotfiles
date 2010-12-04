@@ -1,6 +1,6 @@
 _git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null)
-  if [[ -n $ref ]]; then
+  if [ -n $ref ]; then
     echo "${ref#refs/heads/}"
   fi
 }
@@ -57,7 +57,7 @@ _color() {
 }
 
 _always_run() {
-  echo $(pwd) > ~/.current_project
+  echo $(pwd) > $CURRENT_PROJECT_PATH
 }
 _separate()               { if [ -n "$1" ]; then echo " $1"; fi }
 _white()                  { echo "$(_color "$1" white)" }

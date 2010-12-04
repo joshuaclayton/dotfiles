@@ -1,9 +1,9 @@
 setopt auto_cd
-cdpath=(. ~/dev/personal ~/dev/thoughtbot ~/dev/gems)
+cdpath=(. $HOME/dev/personal $HOME/dev/thoughtbot $HOME/dev/gems)
 
-current () {
-  if [[ -f ~/.current_project ]]; then
-    cd $(cat ~/.current_project)
+current() {
+  if [[ -f $CURRENT_PROJECT_PATH ]]; then
+    cd $(cat $CURRENT_PROJECT_PATH)
   fi
 }
 

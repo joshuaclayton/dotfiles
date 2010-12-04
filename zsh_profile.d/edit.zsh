@@ -1,4 +1,4 @@
 # vi mode
-bindkey -v
+setopt vi
 
 export EDITOR=vim
