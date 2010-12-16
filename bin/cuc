@@ -6,7 +6,7 @@ args = ARGV.map do |arg|
   "features/#{name}.feature#{line}"
 end
 
-script = if File.directory?(".bundle")
+script = if File.exists?("Gemfile")
            args.unshift("exec", "cucumber")
            "bundle"
          elsif File.executable?('script/cucumber')
