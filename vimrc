@@ -107,7 +107,11 @@ set guioptions-=L
 
 set gfn=Bitstream\ Vera\ Sans\ Mono:h24
 
-set clipboard=unnamed
+if has("gui_running")
+  set clipboard=unnamed
+endif
+
+vmap <silent> <C-c> :write! ~/.current-output <CR>
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
