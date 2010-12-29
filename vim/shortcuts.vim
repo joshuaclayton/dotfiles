@@ -12,7 +12,7 @@ map <silent> <C-h> ^cw
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-for prefix in ['i', 'n', 'v']
+for prefix in ['n', 'v']
   for key in ['<Up>', '<Down>', '<Left>', '<Right>']
     exe prefix . "noremap " . key . " <Nop>"
   endfor
