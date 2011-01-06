@@ -61,6 +61,12 @@ _color() {
   fi
 }
 
+_user_name() {
+  if [ $USER != "joshuaclayton" ]; then
+    echo "$USER "
+  fi
+}
+
 _always_run() {
   echo $(pwd) > $CURRENT_PROJECT_PATH
 }
@@ -70,7 +76,7 @@ _grey()                   { echo "$(_color "$1" grey)" }
 _yellow()                 { echo "$(_color "$1" yellow)" }
 
 _bracket_wrap()           { echo "$(_grey "[") $1 $(_grey "]") " }
-_basic()                  { $(_always_run); echo "%n $(_colored_path)" }
+_basic()                  { $(_always_run); echo "$(_user_name)$(_colored_path)" }
 _colored_path()           { echo "$(_grey "%~")" }
 _colored_git_branch()     { echo "$(_git_prompt_color "$(_git_prompt_info)")" }
 _colored_git_difference() { echo "$(_yellow "$(_git_difference_from_track)")" }
