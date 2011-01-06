@@ -1,7 +1,12 @@
 _git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null)
   if [ -n $ref ]; then
-    echo "${ref#refs/heads/}"
+    branch_name="${ref#refs/heads/}"
+    if [ ${#branch_name} -gt 21 ]; then
+      echo "$branch_name[0,18]..."
+    else
+      echo $branch_name
+    fi
   fi
 }
 
