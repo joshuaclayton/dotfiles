@@ -28,7 +28,6 @@ if has("autocmd")
   " turn syntax highlighting on all the friggin' time;
   " that way, chars > 80 get highlighted always
   autocmd BufRead,BufNewFile * :syntax on
-  autocmd BufEnter * lcd %:p:h
 else
   set autoindent
 endif
