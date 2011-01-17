@@ -16,6 +16,7 @@ Snippet exist Given a <{factory}> exists with a <{attribute}> of "<{}>"
 vmap <buffer> <C-R> !reverse_ascii_table<CR>
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+nnoremap <silent> <C-\> :call <SID>align()<CR>
 
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
