@@ -13,7 +13,7 @@ _git_prompt_info() {
 
 _git_status() {
   git_status=$(git status 2> /dev/null)
-  if [ -n "$(echo $git_status | grep "Changed but not updated")" ]; then
+  if [ -n "$(echo $git_status | grep "Changes not staged")" ]; then
     echo "changed"
   elif [ -n "$(echo $git_status | grep "Changes to be committed")" ]; then
     echo "pending"
