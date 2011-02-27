@@ -9,6 +9,7 @@ imap jj <ESC>
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
 map <silent> <C-h> ^cw
+nnoremap <silent> <F4> :GundoToggle<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
