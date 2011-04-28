@@ -12,7 +12,7 @@ _git_prompt_info() {
 }
 
 _git_status() {
-  git_status=$(git status 2> /dev/null)
+  git_status=$(cat "/tmp/git-status-$$")
   if [ -n "$(echo $git_status | grep "Changes not staged")" ]; then
     echo "changed"
   elif [ -n "$(echo $git_status | grep "Changes to be committed")" ]; then
@@ -25,7 +25,7 @@ _git_status() {
 }
 
 _git_difference_from_track() {
-  git_status=$(git status 2> /dev/null)
+  git_status=$(cat "/tmp/git-status-$$")
 
   if [ -n "$(echo $git_status | grep "Your branch is behind")" ]; then
     difference="-"
@@ -69,6 +69,7 @@ _user_name() {
 }
 
 _always_run() {
+  echo $(git status 2> /dev/null) > "/tmp/git-status-$$"
   echo $(pwd) > $CURRENT_PROJECT_PATH
 }
 _separate()               { if [ -n "$1" ]; then echo " $1"; fi }
