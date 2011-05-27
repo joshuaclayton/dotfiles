@@ -83,23 +83,20 @@ _colored_path()           { echo "$(_grey "%~")" }
 _colored_git_branch()     { echo "$(_git_prompt_color "$(_git_prompt_info)")" }
 _colored_git_difference() { echo "$(_yellow "$(_git_difference_from_track)")" }
 
-display_current_vim_mode() {
+_display_current_vim_mode() {
   if [[ $VIMODE == 'vicmd' ]]; then
-    RPROMPT="-NORMAL-"
+    echo "$(_color "✘" red)"
   else
-    RPROMPT="-INSERT-"
+    echo "$(_color "✔" green)"
   fi
 }
 
 function zle-line-init zle-keymap-select {
   VIMODE=$KEYMAP
-  display_current_vim_mode
   zle reset-prompt
 }
 
 zle -N zle-line-init
 zle -N zle-keymap-select
-display_current_vim_mode
 
-# prompt
-export PS1='$(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")'
+export PS1='$(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference)) $(_display_current_vim_mode)")'
