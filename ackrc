@@ -1,7 +1,8 @@
---type-add=ruby=.haml,.rake,.rsel,.builder
+--type-add=ruby=.haml,.rake,.ru
 --type-add=html=.html.erb,.html.haml
 --type-add=js=.js.erb
 --type-add=css=.sass,.less,.scss
+--type-set=markdown=.markdown,.md
 --type-set=cucumber=.feature
 --ignore-dir=vendor
 --ignore-dir=log
