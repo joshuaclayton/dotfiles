@@ -25,6 +25,9 @@ if has("autocmd")
   autocmd WinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
   autocmd BufWinLeave * call clearmatches()
+
+  autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
+
   " turn syntax highlighting on all the friggin' time;
   " that way, chars > 80 get highlighted always
   autocmd BufRead,BufNewFile * :syntax on
