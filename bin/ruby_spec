@@ -8,10 +8,16 @@ class SpecFinder
     @prefix = prefix
   end
 
-
   def name_to_file(name, line = nil)
     file = "#{prefix}/#{name}_spec.rb"
-    file << ":#{line}" if line
+    return file unless line
+
+    file << if line =~ /^\d+$/
+      ":#{line}"
+    else
+      " -e '#{line}'"
+    end
+
     file
   end
 
