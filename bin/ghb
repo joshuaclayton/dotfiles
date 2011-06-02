@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'thor'
+require 'colored'
+require 'active_support/core_ext/string'
+
+class Github < Thor
+  desc "branch", "The branch to send a pull request from (defaults to current branch)"
+  method_options :dry => false
+  method_options :skip_authentication => false
+  def pull(*args)
+    return unless origin_exists?
+    return unless properly_authenticated?
+
+    puts "Running in dry mode.".green     if options[:dry]
+    puts "Skipping authentication.".green if options[:skip_authentication]
+
+    curl_command = [
+      "curl",
+      !options[:skip_authentication] ? %{-u "#{authentication}"} : nil,
+      %{-d "pull[base]=master"},
+      %{-d "pull[head]=#{current_branch}"},
+      %{-d "pull[title]=#{pretty_current_branch}"},
+      %{-d "pull[body]="},
+      api_repository_url
+    ].compact.join(" ").strip
+
+    run_command(curl_command)
+  end
+
+  no_tasks do
+    def api_repository_url
+      "https://github.com/api/v2/json/pulls/#{origin}"
+    end
+
+    def authentication
+      authentication_file_path = File.join(ENV["HOME"], ".gh_auth")
+      if File.exist?(authentication_file_path)
+        File.new(authentication_file_path).read.strip
+      end
+    end
+
+    def run_command(command)
+      puts command.yellow
+
+      unless options[:dry]
+        %x{#{command} &> /dev/null}
+      end
+    end
+
+    def pretty_current_branch
+      current_branch.gsub(/^(\w{2}-)*/, "").titleize.humanize
+    end
+
+    def origin_exists?
+      puts "Origin cannot be determined; aborting".red if origin.blank?
+      origin.present?
+    end
+
+    def properly_authenticated?
+      puts "Cannot properly authenticate; aborting.".red if authentication.blank? && !options[:skip_authentication]
+      options[:skip_authentication] || (!options[:skip_authentication] && authentication.present?)
+    end
+
+    def origin
+      line = git("remote -v").split("\n").detect {|line| line =~ /^origin.*\(fetch\)/ }
+      if line
+        line.match(/:(.*)\.git/)[1]
+      end
+    end
+
+    def current_branch
+      @current_branch ||= git("symbolic-ref HEAD").gsub("refs/heads/", "")
+    end
+
+    def git(command)
+      %x{git #{command} 2> /dev/null}.strip
+    end
+  end
+end
+
+Github.start
