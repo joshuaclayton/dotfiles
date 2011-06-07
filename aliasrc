@@ -5,6 +5,7 @@ alias sc="ruby_spec controllers"
 alias sm="ruby_spec models"
 alias bes="bundle exec rspec"
 alias ber="bundle exec rake"
+alias be="bundle exec"
 
 # git
 alias g="git"
