@@ -3,7 +3,7 @@ cdpath=(. $HOME/dev/personal $HOME/dev/thoughtbot $HOME/dev/gems)
 
 current() {
   if [[ -f $CURRENT_PROJECT_PATH ]]; then
-    cd $(cat $CURRENT_PROJECT_PATH)
+    cd "$(cat $CURRENT_PROJECT_PATH)"
   fi
 }
 
