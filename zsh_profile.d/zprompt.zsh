@@ -69,7 +69,7 @@ _user_name() {
 }
 
 _always_run() {
-  echo $(git status 2> /dev/null) > "/tmp/git-status-$$"
+  $(git status 2> /dev/null > "/tmp/git-status-$$")
   echo $(pwd) > $CURRENT_PROJECT_PATH
 }
 _separate()               { if [ -n "$1" ]; then echo " $1"; fi }
