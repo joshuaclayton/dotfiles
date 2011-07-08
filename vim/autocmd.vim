@@ -27,6 +27,7 @@ if has("autocmd")
   autocmd BufWinLeave * call clearmatches()
 
   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
+  autocmd BufNewFile,BufRead *.mustache set filetype=mustache
 
   " turn syntax highlighting on all the friggin' time;
   " that way, chars > 80 get highlighted always
