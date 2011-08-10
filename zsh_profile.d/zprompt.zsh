@@ -34,7 +34,7 @@ _git_difference_from_track() {
   fi
 
   if [ -n $difference ]; then
-    difference+=$(echo $git_status | grep "Your branch is" | sed "s/[^0-9]//g")
+    difference+=$(echo $git_status | grep "Your branch is" | sed "s/Your branch is .* by//g" | sed "s/[^0-9]//g")
     echo $difference
   fi
 }
