@@ -52,9 +52,6 @@
 [submodule "vim/bundle/gundo.vim"]
 	path = vim/bundle/gundo.vim
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/vim-ruby-refactoring"]
 	path = vim/bundle/vim-ruby-refactoring
 	url = git://github.com/ecomba/vim-ruby-refactoring.git
@@ -64,3 +61,6 @@
 [submodule "vim/bundle/mustache.vim"]
 	path = vim/bundle/mustache.vim
 	url = https://github.com/juvenn/mustache.vim.git
+[submodule "vim/bundle/vim-colors-solarized.vim"]
+	path = vim/bundle/vim-colors-solarized.vim
+	url = git://github.com/altercation/vim-colors-solarized.git
