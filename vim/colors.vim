@@ -7,5 +7,5 @@ endif
 
 " Color scheme
 set t_Co=256
-colorscheme customgithub
+colorscheme github
 match Error /\%80v.\+/

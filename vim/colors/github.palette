@@ -1,0 +1,68 @@
+vim_colors "github" do
+  author "Compiled from a handful of different themes"
+  notes  "Github color scheme (light)"
+  reset  true
+  background :light
+
+  Normal       "000",    "F8F8FF"
+  DiffAdd      "030",    "DFD"
+  DiffChange   nil,      "ECECEC"
+  DiffText     "003",    "DDF"
+  DiffDelete   "DCC",    "FDD"
+  Folded       "808080", "ECECEC"
+  LineNr       "BBB",    "ECECEC"
+  NonText      "808080", "ECECEC"
+  VertSplit    "BBB",    "BBB"
+  StatusLine   "404040", "BBB", :gui => :bold
+  StatusLineNC "BBB",    "ECECEC", :gui => :italic
+  ModeMsg      "900"
+  MoreMsg      "900"
+
+  Title        "EF5939"
+  WarningMsg   "EF5939"
+  SpecialKey   "FFF",    "F10", :gui => :italic
+  MatchParen   "000",    "CDCDFD"
+  Underlined   "000",    :gui => :underline
+  Directory    "900"
+  Visual       "FFF",    "3465A4"
+  VisualNOS    "FFF",    "204A87"
+
+  IncSearch    "000",    "CDCDFD", :gui => :italic
+  Search       "000",    "CDCDFD", :gui => :italic
+  Ignore       "808080"
+  Identifier   "0086B3"
+  PreProc      "A0A0A0", :gui => :bold
+  Comment      "AAAAAA", :gui => :italic
+  Constant     "177F80"
+  String       "D81745"
+  Function     "990000", :gui => :bold
+  Statement    "000000", :gui => :bold
+  Type         "445588", :gui => :bold
+  Number       "1C9898"
+  Todo         "FFFFFF", "990000", :gui => :bold
+  Special      "159828", :gui => :bold
+  rubySymbol   "960B73"
+
+  Error        "F8F8FF", "FF1100"
+  Todo         "F8F8FF", "FF1100", :gui => :underline
+  Label        "000000", :gui => :bold
+  StorageClass "000000", :gui => :bold
+  Structure    "000000", :gui => :bold
+  TypeDef      "000000", :gui => :bold
+
+  WildMenu     "7FBDFF", "425C78"
+  Pmenu        "FFFFFF", "808080", :gui => :bold
+  PmenuSel     "000000", "CDCDFD", :gui => :italic
+  PmenuSbar    "444444", "000000"
+  PmenuThumb   "AAAAAA", "AAAAAA"
+  TabLine      "404040", "DDDDDD"
+  TabLineFill  "404040", "DDDDDD"
+  TabLineSel   "404040", :gui => :bold
+  cucumberTags "333333", "FFFF66", :gui => :bold
+
+  Cursor       "F8F8FF", "444454"
+  CursorLine   :bg => "D8D8DD"
+  CursorColumn :bg => "D8D8DD"
+
+  link :rubyStringDelimiter, :to => :String
+end
