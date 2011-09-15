@@ -2,6 +2,9 @@
 " Visual mode: D
 vmap D y'>p
 
+" Disable shift+k
+map K <Nop>
+
 " because escape is too far away
 imap jj <ESC>
 
