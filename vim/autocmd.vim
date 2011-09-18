@@ -9,9 +9,6 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -28,6 +25,8 @@ if has("autocmd")
 
   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
   autocmd BufNewFile,BufRead *.mustache set filetype=mustache
+
+  autocmd FileType text,markdown setlocal textwidth=78
 
   " turn syntax highlighting on all the friggin' time;
   " that way, chars > 80 get highlighted always
