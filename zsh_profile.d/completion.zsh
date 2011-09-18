@@ -92,14 +92,17 @@ _brew() {
   if (( CURRENT == 2 )); then
     compadd install uninstall
     compadd link unlink
-    compadd missing outdated prune cleanup
+    compadd missing prune cleanup
+    compadd upgrade update
     compadd info edit options deps uses
     compadd home doctor update search
-  elif (( CURRENT == 3 )); then
+  elif (( CURRENT >= 3 )); then
     if [[ $words[2] == "install" || $words[2] == "options" || $words[2] == "info" || $words[2] == "edit" || $words[2] == "options" || $words[2] == "deps" || $words[2] == "uses" || $words[2] == "home" ]]; then
       compadd $(brew search ${words[3]})
     elif [[ $words[2] == "uninstall" ]]; then
       compadd $(brew list)
+    elif [[ $words[2] == "upgrade" ]]; then
+      compadd $(brew outdated | awk '{print $1}')
     fi
   fi
 }
