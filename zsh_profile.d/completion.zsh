@@ -93,7 +93,7 @@ _brew() {
     compadd install uninstall
     compadd link unlink
     compadd missing prune cleanup
-    compadd upgrade update
+    compadd upgrade update outdated
     compadd info edit options deps uses
     compadd home doctor update search
   elif (( CURRENT >= 3 )); then
