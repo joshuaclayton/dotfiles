@@ -1,3 +1,4 @@
 bind -v
 bind \\t rl_complete
 bind ^l ed-clear-screen
+bind ^r em-inc-search-prev
