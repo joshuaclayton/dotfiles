@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+class TabParser
+  def initialize(text)
+    @text = text
+  end
+
+  def on
+    left_curly || hashrocket || equals || colon
+  end
+
+  private
+
+  def hashrocket
+    all_lines_include?("=>")
+  end
+
+  def equals
+    all_lines_include?("=")
+  end
+
+  def left_curly
+    all_lines_include?("{")
+  end
+
+  def colon
+    all_lines_include?(":")
+  end
+
+  def all_lines_include?(string)
+    stripped_lines = @text.split("\n").map(&:strip).reject(&:empty?)
+    string if stripped_lines.all? {|line| line.include?(string) }
+  end
+end
+
+puts TabParser.new($stdin.read).on
