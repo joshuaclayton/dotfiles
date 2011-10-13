@@ -59,6 +59,7 @@ vim_colors "github" do
   TabLineFill  "404040", "DDDDDD"
   TabLineSel   "404040", :gui => :bold
   cucumberTags "333333", "FFFF66", :gui => :bold
+  htmlTagN :gui => :bold
 
   Cursor       "F8F8FF", "444454"
   CursorLine   :bg => "D8D8DD"
