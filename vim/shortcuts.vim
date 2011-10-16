@@ -14,6 +14,8 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:
 map <silent> <C-h> ^cw
 nnoremap <silent> <F4> :GundoToggle<CR>
 
+nnoremap <silent> <C-D> :qa<CR>
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 for prefix in ['n', 'v']
