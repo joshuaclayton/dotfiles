@@ -96,8 +96,8 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function precmd {
-  $(git status 2> /dev/null > "/tmp/git-status-$$")
-  echo $(pwd) > $CURRENT_PROJECT_PATH
+  $(git status 2> /dev/null >! "/tmp/git-status-$$")
+  echo $(pwd) >! $CURRENT_PROJECT_PATH
 }
 
 export PS1='$(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference)) $(_display_current_vim_mode)")'
