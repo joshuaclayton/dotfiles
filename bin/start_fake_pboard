@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-output_path="$HOME/.current-output"
-ps | grep stakeout | grep ruby | awk '{print $1}' | xargs kill -9
-$($HOME/.dotfiles/bin/stakeout "cat $output_path | pbcopy" $output_path)

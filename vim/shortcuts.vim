@@ -24,6 +24,5 @@ for prefix in ['n', 'v']
   endfor
 endfor
 
-vmap <silent> <C-c> :write! ~/.current-output <CR>
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
