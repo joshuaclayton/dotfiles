@@ -28,6 +28,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead Appraisals setlocal filetype=ruby
   autocmd BufNewFile,BufRead *.mustache set filetype=mustache
   autocmd BufNewFile,BufRead *.gemfile set filetype=ruby
+  autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
   autocmd FileType text,markdown setlocal textwidth=78
 
