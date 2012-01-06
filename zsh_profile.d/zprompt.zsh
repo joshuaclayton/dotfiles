@@ -43,13 +43,13 @@ _git_prompt_color() {
   if [ -n "$1" ]; then
     current_git_status=$(_git_status)
     if [ "changed" = $current_git_status ]; then
-      echo "%{$fg_bold[red]%}$1%{$reset_color%}"
+      echo "$(_red $1)"
     elif [ "pending" = $current_git_status ]; then
-      echo "%{$fg_bold[yellow]%}$1%{$reset_color%}"
+      echo "$(_yellow $1)"
     elif [ "unchanged" = $current_git_status ]; then
-      echo "%{$fg_bold[green]%}$1%{$reset_color%}"
+      echo "$(_green $1)"
     elif [ "untracked" = $current_git_status ]; then
-      echo "%{$fg_bold[cyan]%}$1%{$reset_color%}"
+      echo "$(_cyan $1)"
     fi
   else
     echo "$1"
@@ -69,9 +69,11 @@ _user_name() {
 }
 
 _separate()               { if [ -n "$1" ]; then echo " $1"; fi }
-_white()                  { echo "$(_color "$1" white)" }
 _grey()                   { echo "$(_color "$1" grey)" }
 _yellow()                 { echo "$(_color "$1" yellow)" }
+_green()                  { echo "$(_color "$1" green)" }
+_red()                    { echo "$(_color "$1" red)" }
+_cyan()                   { echo "$(_color "$1" cyan)" }
 
 _bracket_wrap()           { echo "$(_grey "[") $1 $(_grey "]") " }
 _basic()                  { echo "$(_user_name)$(_colored_path)" }
@@ -81,9 +83,9 @@ _colored_git_difference() { echo "$(_yellow "$(_git_difference_from_track)")" }
 
 _display_current_vim_mode() {
   if [[ $VIMODE == 'vicmd' ]]; then
-    echo "$(_color "✘" red)"
+    echo "$(_red "✘")"
   else
-    echo "$(_color "✔" green)"
+    echo "$(_green "✔")"
   fi
 }
 
@@ -100,4 +102,15 @@ function precmd {
   echo $(pwd) >! $CURRENT_PROJECT_PATH
 }
 
-export PS1='$(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference)) $(_display_current_vim_mode)")'
+_rprompt() {
+  if [ $COLUMNS -gt 80 ]; then
+    echo "%{$fg[white]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}"
+  fi
+}
+
+_status_result() {
+  echo "%(?,$(_green "☺"), $(_red "☹"))"
+}
+
+PROMPT='$(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")$(_display_current_vim_mode) '
+RPROMPT='$(_status_result) $(_rprompt)'
