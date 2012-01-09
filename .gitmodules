@@ -76,3 +76,6 @@
 [submodule "vim/bundle/file-line.vim"]
 	path = vim/bundle/file-line.vim
 	url = https://github.com/bogado/file-line.git
+[submodule "vim/bundle/vim-pasta"]
+	path = vim/bundle/vim-pasta
+	url = https://github.com/sickill/vim-pasta.git
