@@ -67,7 +67,7 @@ class SpecFinder
 
   def command_to_run(files)
     files_string = files.join(" ")
-    "#{script_to_run} #{files_string}"
+    "#{script_to_run} #{files_string} --drb"
   end
 
   def script_to_run
