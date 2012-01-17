@@ -3,7 +3,7 @@
 args = ARGV.map do |arg|
   name, line = *arg.split(':')
   line = ":#{line}" if line
-  "features/#{name}.feature#{line} --drb"
+  "features/#{name}.feature#{line}"
 end
 
 script = if File.exists?("Gemfile")
