@@ -1,5 +1,5 @@
 --type-add=ruby=.haml,.rake,.ru,.palette
---type-add=html=.html.erb,.html.haml,.mustache,.jst
+--type-add=html=.html.erb,.html.haml,.mustache,.jst,.ejs
 --type-add=js=.js.erb,.coffee
 --type-add=css=.sass,.less,.scss
 --type-set=markdown=.markdown,.md
