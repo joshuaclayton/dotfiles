@@ -1,5 +1,4 @@
 export REMOTE_GEM_CACHE_PATH=$HOME/.remote-gem-cache
-export CURRENT_PROJECT_PATH=$HOME/.current-project
 export ZSH_HISTORY_PATH=$HOME/.zsh_history
 
 source $HOME/.aliasrc

@@ -99,7 +99,6 @@ zle -N zle-keymap-select
 
 function precmd {
   $(git status 2> /dev/null >! "/tmp/git-status-$$")
-  echo $(pwd) >! $CURRENT_PROJECT_PATH
 }
 
 _rprompt() {
