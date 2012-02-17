@@ -24,5 +24,6 @@ source $HOME/.vim/shortcuts.vim
 source $HOME/.vim/syntax_highlighting.vim
 source $HOME/.vim/tab_completion.vim
 source $HOME/.vim/visual.vim
+source $HOME/.vim/tmux.vim
 
 call pathogen#runtime_append_all_bundles()
