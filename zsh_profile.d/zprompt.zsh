@@ -103,7 +103,7 @@ function precmd {
 
 _rprompt() {
   if [ $COLUMNS -gt 80 ]; then
-    echo "%{$fg[white]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}"
+    echo "%{$fg[white]%}$($rvm_path/bin/rvm-prompt)%{$reset_color%}"
   fi
 }
 
