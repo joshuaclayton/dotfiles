@@ -101,9 +101,19 @@ function precmd {
   $(git status 2> /dev/null >! "/tmp/git-status-$$")
 }
 
+_current_ruby() {
+  if [[ -n $rvm_path ]]; then
+    $rvm_path/bin/rvm-prompt
+  fi
+
+  if [[ -x rbenv ]]; then
+    rbenv version
+  fi
+}
+
 _rprompt() {
   if [ $COLUMNS -gt 80 ]; then
-    echo "%{$fg[white]%}$($rvm_path/bin/rvm-prompt)%{$reset_color%}"
+    echo "%{$fg[white]%}$(_current_ruby)%{$reset_color%}"
   fi
 }
 
