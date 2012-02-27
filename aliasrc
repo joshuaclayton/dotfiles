@@ -1,8 +1,4 @@
 # ruby/rails
-alias tf="ruby_test functional"
-alias tu="ruby_test unit"
-alias sc="ruby_spec controllers"
-alias sm="ruby_spec models"
 alias bes="bundle exec rspec"
 alias ber="bundle exec rake"
 alias bake="bundle exec rake"

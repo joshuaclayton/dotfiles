@@ -4,24 +4,6 @@ setopt prompt_subst
 autoload -U compinit
 compinit
 
-# autocompletion for ruby_test
-# works with tu/tf aliases
-_ruby_test() {
-  if [[ -n $words[2] ]]; then
-    compadd $(ruby_test -l ${words[2]})
-  fi
-}
-compdef _ruby_test ruby_test
-
-# autocompletion for ruby_spec
-# works with sm/sc aliases
-_ruby_spec() {
-  if [[ -n $words[2] ]]; then
-    compadd $(ruby_spec -l ${words[2]})
-  fi
-}
-compdef _ruby_spec ruby_spec
-
 _grb() {
   if [[ -n $(git symbolic-ref HEAD 2> /dev/null) ]]; then
     if (( CURRENT == 2 )); then
