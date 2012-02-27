@@ -10,7 +10,5 @@ zsh_profile.d
 aliasrc
 tmux.conf
 zshenv
-muttrc
-offlineimaprc
 editrc
 rdebugrc
