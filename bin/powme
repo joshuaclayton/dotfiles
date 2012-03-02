@@ -13,6 +13,8 @@ class PowMe
     symlink
   end
 
+  private
+
   def ensure_rvmrc_is_present!
     unless rvmrc_exists?
       puts ".rvmrc doesn't exist".red
