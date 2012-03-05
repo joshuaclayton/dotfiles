@@ -3,8 +3,9 @@ export NODE_PATH=/usr/local/lib/node_modules
 export LANG=en_US.UTF-8
 export RBENV_ROOT=$HOME/.rbenv
 
-path=($RBENV_ROOT/bin $HOME/.dotfiles/bin /usr/local/Cellar/python/2.7.2/bin /usr/local/share/python /usr/local/bin $path)
+path=($HOME/.dotfiles/bin /usr/local/Cellar/python/2.7.2/bin /usr/local/share/python /usr/local/bin $path)
 
+[[ -f $RBENV_ROOT ]] && path=($RBENV_ROOT/bin $path)
 if [[ -d $RBENV_ROOT/bin ]]; then
   eval "$(rbenv init -)"
 fi
