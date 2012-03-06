@@ -9,6 +9,8 @@
 --ignore-dir=tmp
 --ignore-dir=doc
 --ignore-dir=coverage
+--ignore-dir=public/assets
+--ignore-dir=public/coffeescripts
 --sort-files
 --color
 --follow
