@@ -8,4 +8,4 @@ for zsh_source in $HOME/.zsh_profile.d/*.zsh; do
 done
 
 source $HOME/.zsh_profile.d/rvm
-source $HOME/.zsh_profile.d/cd_to_last_directory
+current
