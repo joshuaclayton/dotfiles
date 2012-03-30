@@ -8,4 +8,5 @@ for zsh_source in $HOME/.zsh_profile.d/*.zsh; do
 done
 
 source $HOME/.zsh_profile.d/rvm
+[[ $TERM = "screen-256color" ]] && rvm use default
 current
