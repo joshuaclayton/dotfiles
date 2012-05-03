@@ -5,5 +5,6 @@ export RBENV_ROOT=$HOME/.rbenv
 
 path=($HOME/.dotfiles/bin /usr/local/Cellar/python/2.7.2/bin /usr/local/share/python /usr/local/bin $path)
 
-[[ -d $RBENV_ROOT ]]       && path=($RBENV_ROOT/shims $path)
 [[ -d $RBENV_ROOT/shims ]] && eval "$(rbenv init -)"
+
+PATH=".git/safe/../../bin:$PATH"
