@@ -106,8 +106,8 @@ _current_ruby() {
     $rvm_path/bin/rvm-prompt
   fi
 
-  if [[ -x rbenv ]]; then
-    rbenv version
+  if [[ -n $(rbenv version) ]]; then
+    rbenv version-name
   fi
 }
 
