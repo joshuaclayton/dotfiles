@@ -72,6 +72,7 @@ hi cucumberTags guifg=#333333 ctermfg=236  guibg=#FFFF66 ctermbg=227  gui=BOLD c
 hi htmlTagN     gui=BOLD cterm=BOLD
 hi Cursor       guifg=#F8F8FF ctermfg=231  guibg=#444454 ctermbg=238  gui=NONE cterm=NONE
 hi CursorLine   guibg=#D8D8DD ctermbg=253  gui=NONE cterm=NONE
-hi CursorColumn guibg=#D8D8DD ctermbg=253  gui=NONE cterm=NONE
+hi CursorColumn guibg=#EEEEEE ctermbg=255  gui=NONE cterm=NONE
 
 hi link rubyStringDelimiter String
+hi link ColorColumn         Error

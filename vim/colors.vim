@@ -7,5 +7,7 @@ endif
 
 " Color scheme
 set t_Co=256
+set cursorcolumn
 colorscheme github
 match Error /\%80v.\+/
+set colorcolumn=80

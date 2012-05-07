@@ -63,7 +63,8 @@ vim_colors "github" do
 
   Cursor       "F8F8FF", "444454"
   CursorLine   :bg => "D8D8DD"
-  CursorColumn :bg => "D8D8DD"
+  CursorColumn :bg => "EEE"
 
   link :rubyStringDelimiter, :to => :String
+  link :ColorColumn, :to => :Error
 end
