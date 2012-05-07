@@ -19,8 +19,15 @@ if has("autocmd")
 
   augroup END
 
-  autocmd WinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
+  autocmd BufWinEnter,WinEnter * setlocal cursorline
+  autocmd BufWinLeave,WinLeave * setlocal nocursorline
+
+  autocmd BufWinEnter,WinEnter * setlocal colorcolumn=80
+  autocmd BufWinLeave,WinLeave * setlocal colorcolumn=0
+
+  autocmd BufWinEnter,WinEnter * setlocal cursorcolumn
+  autocmd BufWinLeave,WinLeave * setlocal nocursorcolumn
+
   autocmd BufWinLeave * call clearmatches()
 
   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
