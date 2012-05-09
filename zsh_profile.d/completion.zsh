@@ -40,7 +40,7 @@ _rake_does_task_list_need_generating() {
 _rake() {
   if [[ -f Rakefile ]]; then
     if _rake_does_task_list_need_generating; then
-      rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
+      rake --silent --tasks | cut -d " " -f 2 | cut -d "[" -f 1 > .rake_tasks
     fi
     compadd $(cat .rake_tasks)
   fi
