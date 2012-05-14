@@ -103,3 +103,15 @@ _cheat() {
   compadd $(cheat sheets)
 }
 compdef _cheat cheat
+
+_ack() {
+  if (( CURRENT == 2 )); then
+    if [[ -a tmp/tags ]]; then
+      compadd $(cat tmp/tags | awk '{print $1}')
+    fi
+  else;
+    _files
+  fi
+}
+
+compdef _ack ack
