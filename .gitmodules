@@ -73,3 +73,6 @@
 [submodule "vim/bundle/vim-turbux"]
 	path = vim/bundle/vim-turbux
 	url = https://github.com/jgdavey/vim-turbux.git
+[submodule "vim/bundle/vim-ruby-complexity"]
+	path = vim/bundle/vim-ruby-complexity
+	url = https://github.com/skammer/vim-ruby-complexity.git
