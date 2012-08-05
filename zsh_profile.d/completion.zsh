@@ -70,6 +70,14 @@ _gem() {
 }
 compdef _gem gem
 
+function __filter_homebrew {
+  if [[ $1 == "" ]]; then
+    cat $HOMEBREW_SEARCH_CACHE_PATH
+  else;
+    cat $HOMEBREW_SEARCH_CACHE_PATH | grep $1
+  fi
+}
+
 _brew() {
   if (( CURRENT == 2 )); then
     compadd list
@@ -82,12 +90,12 @@ _brew() {
   elif (( CURRENT >= 3 )); then
     if (( CURRENT == 3 )); then
       if [[ $words[2] == "options" || $words[2] == "info" || $words[2] == "edit" || $words[2] == "options" || $words[2] == "deps" || $words[2] == "uses" || $words[2] == "home" ]]; then
-        compadd $(brew search ${words[3]})
+        compadd $(__filter_homebrew ${words[3]})
       fi
     fi
 
     if [[ $words[2] == "install" ]]; then
-      compadd $(brew search ${words[-1]})
+      compadd $(__filter_homebrew ${words[-1]})
     elif [[ $words[2] == "uninstall" ]]; then
       compadd $(brew list)
     elif [[ $words[2] == "cleanup" ]]; then

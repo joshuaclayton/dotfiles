@@ -1,5 +1,6 @@
 export REMOTE_GEM_CACHE_PATH=$HOME/.remote-gem-cache
 export ZSH_HISTORY_PATH=$HOME/.zsh_history
+export HOMEBREW_SEARCH_CACHE_PATH=$HOME/.homebrew-search-cache
 
 source $HOME/.aliasrc
 
