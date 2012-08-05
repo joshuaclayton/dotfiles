@@ -22,6 +22,6 @@ end
 
 %w(January February March April May June July August September October November December).each_with_index do |month, index|
   Object.send :define_method, month do |day, year|
-    Date.parse("#{index + 1}/#{day}/#{year}")
+    Date.parse("#{day}/#{index + 1}/#{year}")
   end
 end
