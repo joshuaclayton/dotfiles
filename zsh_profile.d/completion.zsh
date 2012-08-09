@@ -98,6 +98,8 @@ _brew() {
       compadd $(__filter_homebrew ${words[-1]})
     elif [[ $words[2] == "uninstall" ]]; then
       compadd $(brew list)
+    elif [[ $words[2] == "unlink" ]]; then
+      compadd $(brew list)
     elif [[ $words[2] == "cleanup" ]]; then
       compadd $(brew list --versions | grep ' .* ' | awk '{print $1}')
     elif [[ $words[2] == "upgrade" ]]; then
