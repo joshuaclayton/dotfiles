@@ -7,4 +7,4 @@ path=($HOME/.dotfiles/bin /usr/local/Cellar/python/2.7.2/bin /usr/local/share/py
 
 [[ -d $RBENV_ROOT/shims ]] && eval "$(rbenv init -)"
 
-PATH=".git/safe/../../bin:$PATH"
+path=(.git/safe/../../bin $path)
