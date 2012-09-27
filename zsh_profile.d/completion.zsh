@@ -117,7 +117,7 @@ compdef _cheat cheat
 _ack() {
   if (( CURRENT == 2 )); then
     if [[ -a tmp/tags ]]; then
-      compadd $(cat tmp/tags | awk '{print $1}')
+      compadd $(cut -f 1 tmp/tags | uniq)
     fi
   else;
     _files
