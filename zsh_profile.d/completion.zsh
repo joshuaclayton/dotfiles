@@ -23,11 +23,6 @@ _grb() {
 }
 compdef _grb grb
 
-_cuc() {
-  compadd $(ls features/**/*.feature | sed "s/features\/\(.*\).feature/\1/")
-}
-compdef _cuc cuc
-
 _rake_does_task_list_need_generating() {
   if [[ ! -f .rake_tasks ]]; then return 0;
   else
