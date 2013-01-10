@@ -112,7 +112,7 @@ compdef _cheat cheat
 _ack() {
   if (( CURRENT == 2 )); then
     if [[ -a tmp/tags ]]; then
-      compadd $(cut -f 1 tmp/tags | uniq)
+      compadd $(parse_tags)
     fi
   else;
     _files

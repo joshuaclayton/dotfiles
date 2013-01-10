@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cat tmp/tags | grep -v "rbenv" | cut -f 1 | uniq
