@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$1" = "" ]; then
+ echo "usage: `basename $0` <file> ..."
+ exit
+fi
+
+echo "weasel words: "
+sh bin/weasel $1
+echo
+echo "passive voice: "
+sh bin/passive $1
+echo
+echo "duplicates: "
+perl bin/dups $1
