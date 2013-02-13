@@ -37,6 +37,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.gemfile set filetype=ruby
   autocmd BufNewFile,BufRead *.coffee set filetype=coffee
   autocmd BufNewFile,BufRead *.md set filetype=markdown
+  autocmd BufNewFile,BufRead *.ejs set filetype=html
 
   autocmd FileType text,markdown setlocal textwidth=78
 
