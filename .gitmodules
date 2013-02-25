@@ -76,3 +76,6 @@
 [submodule "vim/bundle/vim-ruby-complexity"]
 	path = vim/bundle/vim-ruby-complexity
 	url = git@github.com:joshuaclayton/vim-ruby-complexity.git
+[submodule "vim/bundle/solarized.vim"]
+	path = vim/bundle/solarized.vim
+	url = https://github.com/altercation/vim-colors-solarized.git
