@@ -25,8 +25,15 @@ _dotenv_deauthorize() {
 }
 
 _dotenv_print_unauthorized_message() {
-  echo "Attempting to load env: $1"
-  echo ".env is not authorized; would you like to authorize it? (y/n)"
+  echo "Attempting to load unauthorized env: $1"
+  echo ""
+  echo "**********************************************"
+  echo ""
+  cat $1
+  echo ""
+  echo "**********************************************"
+  echo ""
+  echo "Would you like to authorize it? (y/n)"
 }
 
 _dotenv_source_env() {
