@@ -1,6 +1,8 @@
-export REMOTE_GEM_CACHE_PATH=$HOME/.remote-gem-cache
-export ZSH_HISTORY_PATH=$HOME/.zsh_history
-export HOMEBREW_SEARCH_CACHE_PATH=$HOME/.homebrew-search-cache
+path=($HOME/.dotfiles/bin /usr/local/share/npm/bin /usr/local/Cellar/python/2.7.2/bin /usr/local/share/python /usr/local/sbin /usr/local/bin $path)
+
+[[ -d $RBENV_ROOT/shims ]] && eval "$(rbenv init -)"
+
+path=(.git/safe/../../bin .git/safe/../../bin/stubs $path)
 
 source $HOME/.aliasrc
 
