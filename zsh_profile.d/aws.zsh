@@ -1,5 +1,6 @@
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export AWS_RDS_HOME="/usr/local/Cellar/rds-command-line-tools/1.10.003/libexec"
+export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 
 function set_ec2_credentials {
   if [[ -n $AWS_APP ]]; then
