@@ -5,6 +5,7 @@ vim
 irbrc
 irbrc.d
 inputrc
+zprofile
 zshrc
 zsh_profile.d
 aliasrc
