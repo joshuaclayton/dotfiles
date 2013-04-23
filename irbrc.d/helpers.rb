@@ -26,5 +26,5 @@ end
 
 def load_fg
   require "factory_girl"
-  Factory.find_definitions
+  FactoryGirl.find_definitions
 end
