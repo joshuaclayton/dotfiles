@@ -1,3 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-cat tmp/tags | grep -v "rbenv" | cut -f 1 | uniq
+for filename in tmp/tags .git/tags
+do
+  if [ -s $filename ]; then
+    cat $filename | grep -v "rbenv" | cut -f 1 | uniq
+  fi
+done
