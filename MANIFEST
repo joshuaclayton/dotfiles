@@ -2,6 +2,7 @@ ackrc
 gemrc
 vimrc
 vim
+pryrc
 irbrc
 irbrc.d
 inputrc
