@@ -1,0 +1,2 @@
+bind generic ^f move-page-down
+bind generic ^b move-page-up
