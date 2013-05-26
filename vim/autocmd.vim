@@ -1,10 +1,4 @@
 if has("autocmd")
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
@@ -16,8 +10,6 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-
-  augroup END
 
   autocmd BufWinEnter,WinEnter * setlocal cursorline
   autocmd BufWinLeave,WinLeave * setlocal nocursorline
@@ -39,12 +31,16 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.coffee set filetype=coffee
   autocmd BufNewFile,BufRead *.md set filetype=markdown
   autocmd BufNewFile,BufRead *.ejs set filetype=html
+  autocmd BufNewFile,BufRead *.scss set filetype=scss
+  autocmd BufNewFile,BufRead *.ru set filetype=ruby
 
   autocmd FileType text,markdown setlocal textwidth=78
 
   " turn syntax highlighting on all the friggin' time;
   " that way, chars > 80 get highlighted always
   autocmd BufRead,BufNewFile * :syntax on
+
+  augroup END
 else
   set autoindent
 endif
