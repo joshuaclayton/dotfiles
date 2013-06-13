@@ -93,6 +93,7 @@ let g:rails_projections = {
 \ },
 \ "config/routes.rb": {"command": "routes"},
 \ "spec/features/*_spec.rb": {"command": "feature"},
+\ "spec/requests/*_spec.rb": {"command": "feature"},
 \ "spec/support/*.rb": {"command": "support"},
 \ "spec/factories.rb": {"command": "factories"},
 \ "spec/factories/*.rb": {"command": "factories"}
