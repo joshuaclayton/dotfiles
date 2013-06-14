@@ -18,6 +18,3 @@ set numberwidth=5
 set gdefault
 set shiftround
 set nowrap
-
-" Hide search highlighting
-map <Leader>h :set invhls <CR>

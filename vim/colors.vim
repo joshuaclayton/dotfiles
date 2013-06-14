@@ -7,4 +7,3 @@ call togglebg#map("<F6>")
 match Error /\%80v.\+/
 
 syntax on
-set hlsearch
