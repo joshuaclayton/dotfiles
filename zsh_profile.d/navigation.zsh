@@ -9,7 +9,7 @@ function chpwd {
 }
 
 current() {
-  if [[ -f $CURRENT_PROJECT_PATH ]]; then
+  if [[ -f $CURRENT_PROJECT_PATH && -d "$(cat $CURRENT_PROJECT_PATH)" ]]; then
     cd "$(cat $CURRENT_PROJECT_PATH)"
   fi
 }
