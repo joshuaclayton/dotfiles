@@ -30,6 +30,13 @@ end
 
 files = File.new(File.join(pwd, "MANIFEST"), "r").read.split("\n")
 
+desc "Install all dotfiles"
+task :install do
+  files.each do |file|
+    Installer.new.symlink(File.join(pwd, file), target_path(file))
+  end
+end
+
 desc "Remove all dotfies"
 task :uninstall do
   files.each do |file|
