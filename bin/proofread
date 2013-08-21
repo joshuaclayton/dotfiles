@@ -6,10 +6,10 @@ if [ "$1" = "" ]; then
 fi
 
 echo "weasel words: "
-sh bin/weasel $1
+sh $(dirname $0)/weasel $1
 echo
 echo "passive voice: "
-sh bin/passive $1
+sh $(dirname $0)/passive $1
 echo
 echo "duplicates: "
-perl bin/dups $1
+perl $(dirname $0)/dups $1
