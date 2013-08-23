@@ -4,4 +4,4 @@ for zsh_source in $HOME/.zsh_profile.d/*.zsh; do
   source $zsh_source
 done
 
-current
+cd_to_most_recently_opened_directory

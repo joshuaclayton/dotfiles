@@ -8,7 +8,7 @@ function chpwd {
   ls
 }
 
-current() {
+cd_to_most_recently_opened_directory() {
   if [[ -f $CURRENT_PROJECT_PATH && -d "$(cat $CURRENT_PROJECT_PATH)" ]]; then
     cd "$(cat $CURRENT_PROJECT_PATH)"
   fi
