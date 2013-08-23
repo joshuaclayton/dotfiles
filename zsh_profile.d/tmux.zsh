@@ -1,5 +1,5 @@
 _is_tmux_not_running() {
-  [[ -z $(echo $TMUX) ]]
+  [[ -z "$TMUX" ]]
 }
 
 _is_tmux_session_list_empty() {
