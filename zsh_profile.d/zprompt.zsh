@@ -30,14 +30,14 @@ _git_status() {
 _git_difference_from_track() {
   git_status=$(cat "/tmp/git-status-$$")
 
-  if [ -n "$(echo $git_status | grep "Your branch is behind")" ]; then
+  if grep -q "Your branch is behind" <<< "$git_status"; then
     difference="-"
-  elif [ -n "$(echo $git_status | grep "Your branch is ahead of")" ]; then
+  elif grep -q "Your branch is ahead of" <<< "$git_status"; then
     difference="+"
   fi
 
-  if [ -n $difference ]; then
-    difference+=$(echo $git_status | grep "Your branch is" | sed "s/Your branch is .* by//g" | sed "s/[^0-9]//g")
+  if [ -n "$difference" ]; then
+    difference+=$(echo $git_status | grep "Your branch is" | sed "s/Your branch is .* by//g;s/[^0-9]//g")
     echo $difference
   fi
 }
