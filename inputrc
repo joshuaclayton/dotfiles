@@ -1,4 +1,10 @@
 set -o vi
+
 set editing-mode vi
-set keymap vi
 set convert-meta on
+
+set keymap vi
+Control-l: clear-screen
+
+set keymap vi-insert
+Control-l: clear-screen
