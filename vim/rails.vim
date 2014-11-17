@@ -15,6 +15,13 @@ let g:rails_projections = {
 \     "spec/jobs/%s_job_spec.rb"
 \   ]
 \ },
+\ "app/policies/*_policy.rb": {
+\   "command": "policy",
+\   "template": "class %SPolicy\n  class Scope\n  end\nend",
+\   "test": [
+\     "spec/policies/%s_policy_spec.rb"
+\   ]
+\ },
 \ "app/decorators/*_decorator.rb": {
 \   "command": "decorator",
 \   "template": "class %SDecorator < Draper::Decorator\nend",
