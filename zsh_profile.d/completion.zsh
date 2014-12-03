@@ -116,3 +116,9 @@ _ack() {
 
 compdef _ack ack
 compdef _ack ag
+
+_mark() {
+  _files
+}
+
+compdef _mark mark
