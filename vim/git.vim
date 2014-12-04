@@ -1,2 +1,2 @@
-Bundle 'tpope/vim-fugitive'
-Bundle 'mattn/gist-vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mattn/gist-vim'

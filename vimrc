@@ -1,15 +1,15 @@
 set nocompatible
-
-let mapleader = "\\"
+filetype off
 
 source $HOME/.vim/vundle.vim
 
-Bundle 'othree/html5.vim'
-Bundle 'matchit.zip'
-Bundle 'tComment'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'kana/vim-textobj-user'
-Bundle 'vim-coffee-script'
+Plugin 'othree/html5.vim'
+Plugin 'matchit.zip'
+Plugin 'tComment'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'kana/vim-textobj-user'
+Plugin 'vim-coffee-script'
+Plugin 'tpope/vim-eunuch'
 
 source $HOME/.vim/backup_files.vim
 source $HOME/.vim/clipboard.vim

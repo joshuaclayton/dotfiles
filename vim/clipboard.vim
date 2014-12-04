@@ -1,3 +1,3 @@
-Bundle 'sickill/vim-pasta'
+Plugin 'sickill/vim-pasta'
 
 set clipboard=unnamed
