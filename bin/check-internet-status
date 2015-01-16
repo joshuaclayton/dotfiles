@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+set -e
+
+while true; do
+  if [ -n "$(fping google.com | grep alive)" ]; then
+    echo "alive" >> $INTERNET_STATUS_LOG
+  else
+    echo "dead" >> $INTERNET_STATUS_LOG
+  fi
+
+  sleep 2
+done

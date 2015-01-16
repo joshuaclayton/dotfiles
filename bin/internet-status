@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+set -e
+
+tail -n3 $INTERNET_STATUS_LOG | grep alive | wc -l | tr -d ' '

@@ -65,6 +65,12 @@ _color() {
   fi
 }
 
+_normal_color() {
+  if [ -n "$1" ]; then
+    echo "%{$fg[$2]%}$1%{$reset_color%}"
+  fi
+}
+
 _default_color() {
   if [ -n "$1" ]; then
     echo "%{$reset_color%}$1"
@@ -79,8 +85,8 @@ _user_name() {
 
 _separate()               { if [ -n "$1" ]; then echo " $1"; fi }
 _grey()                   { echo "$(_default_color "$1")" }
-_yellow()                 { echo "$(_color "$1" yellow)" }
-_green()                  { echo "$(_color "$1" green)" }
+_yellow()                 { echo "$(_normal_color "$1" yellow)" }
+_green()                  { echo "$(_normal_color "$1" green)" }
 _red()                    { echo "$(_color "$1" red)" }
 _cyan()                   { echo "$(_color "$1" cyan)" }
 
@@ -130,5 +136,17 @@ _status_result() {
   echo "%(?,$(_green "☺"), $(_red "☹"))"
 }
 
-PROMPT='$(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")$(_display_current_vim_mode) '
+_display_internet_connection_status() {
+  result=$(internet-status)
+
+  if [[ (($result -lt 2)) ]]; then
+    echo "$(_red "☼")"
+  elif [[ (($result == 2)) ]]; then
+    echo "$(_yellow "☼")"
+  else
+    echo "$(_green "☼")"
+  fi
+}
+
+PROMPT='$(_display_internet_connection_status) $(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")$(_display_current_vim_mode) '
 RPROMPT='$(_status_result) $(_rprompt)'
