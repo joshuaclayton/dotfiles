@@ -40,7 +40,7 @@ _dotenv_print_unauthorized_message() {
 
 _export_environment_variables() {
   LAST_AUTHORIZED_ENV="$1"
-  export $(cat "$1" | grep -v '^#')
+  export "$(cat "$1" | grep -v '^#')"
 }
 
 _dotenv_source_env() {
