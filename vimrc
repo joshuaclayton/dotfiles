@@ -10,6 +10,9 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'kana/vim-textobj-user'
 Plugin 'vim-coffee-script'
 Plugin 'tpope/vim-eunuch'
+Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-projectionist'
+Plugin 'elixir-lang/vim-elixir'
 
 source $HOME/.vim/backup_files.vim
 source $HOME/.vim/clipboard.vim
@@ -27,6 +30,7 @@ source $HOME/.vim/syntax_highlighting.vim
 source $HOME/.vim/tab_completion.vim
 source $HOME/.vim/tmux.vim
 source $HOME/.vim/visual.vim
+source $HOME/.vim/javascript.vim
 
 filetype plugin indent on
 
