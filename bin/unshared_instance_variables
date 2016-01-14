@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+instance_variables_in_controllers_mailers = `ag '@\\w+' #{Dir.pwd}/app/controllers #{Dir.pwd}/app/mailers -o | cut -d ':' -f 3 | sort -u`.split("\n")
+instance_variables_in_views = `ag '@\\w+' #{Dir.pwd}/app/views -o | cut -d ':' -f 3 | sort -u`.split("\n")
+
+ivars_only_in_controllers_mailers = instance_variables_in_controllers_mailers - instance_variables_in_views
+ivars_only_in_views = instance_variables_in_views - instance_variables_in_controllers_mailers
+
+puts (ivars_only_in_controllers_mailers + ivars_only_in_views).uniq.sort
