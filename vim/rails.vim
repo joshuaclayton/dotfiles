@@ -15,6 +15,13 @@ let g:rails_projections = {
 \     "spec/jobs/%s_job_spec.rb"
 \   ]
 \ },
+\ "app/services/*.rb": {
+\   "command": "service",
+\   "template": "class %S\nend",
+\   "test": [
+\     "spec/services/%s_spec.rb"
+\   ]
+\ },
 \ "app/policies/*_policy.rb": {
 \   "command": "policy",
 \   "template": "class %SPolicy\n  class Scope\n  end\nend",
@@ -36,6 +43,38 @@ let g:rails_projections = {
 \     "spec/serializers/%s_serializer_spec.rb"
 \   ]
 \ },
+\
+\ "frontend/app/routes/*.js": {
+\   "command": "eroute",
+\   "template":
+\     "import Ember from 'ember';\n\nexport default Ember.Route.extend({});",
+\   "alternate": [
+\     "frontend/app/templates/%s.hbs"
+\   ]
+\ },
+\ "frontend/app/utils/*.js": {
+\   "command": "eutil",
+\   "template":
+\     "const %S = function() {\n};export {\n  %S\n};"
+\ },
+\ "frontend/app/models/*.js": {
+\   "command": "emodel",
+\   "template":
+\     "import DS from 'ember-data';\n\nexport default DS.Model.extend({\n});"
+\ },
+\ "frontend/app/templates/*.hbs": {
+\   "command": "etemplate",
+\   "alternate": [
+\     "frontend/app/routes/%s.js"
+\   ]
+\ },
+\ "frontend/app/components/*.js": {
+\   "command": "ecomponent",
+\   "alternate": [
+\     "frontend/app/templates/components/%s.hbs"
+\   ]
+\ },
+\
 \ "app/assets/javascripts/routers/*.coffee": {
 \   "command": "jrouter",
 \   "template":
@@ -89,6 +128,7 @@ let g:rails_projections = {
 \     "app/assets/javascripts/views/%s.js"
 \   ]
 \ },
+\
 \ "spec/javascripts/*_spec.coffee": {
 \   "command": "jspec",
 \   "alternate": [
