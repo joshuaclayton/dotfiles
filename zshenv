@@ -9,3 +9,4 @@ export HOMEBREW_SEARCH_CACHE_PATH=$HOME/.homebrew-search-cache
 export INTERNET_STATUS_LOG=/tmp/internet-status.log
 
 touch $INTERNET_STATUS_LOG
+eval `docker-machine env 2>/dev/null`
