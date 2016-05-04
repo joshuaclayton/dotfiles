@@ -34,6 +34,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.ejs set filetype=html
   autocmd BufNewFile,BufRead *.scss set filetype=scss
   autocmd BufNewFile,BufRead *.ru set filetype=ruby
+  autocmd BufNewFile,BufRead *.elm set filetype=elm
 
   autocmd FileType text,markdown setlocal textwidth=78
 
