@@ -31,6 +31,8 @@ source $HOME/.vim/syntax_highlighting.vim
 source $HOME/.vim/tab_completion.vim
 source $HOME/.vim/tmux.vim
 source $HOME/.vim/visual.vim
+source $HOME/.vim/cabal.vim
+source $HOME/.vim/haskell.vim
 
 filetype plugin indent on
 

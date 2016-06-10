@@ -35,6 +35,9 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.scss set filetype=scss
   autocmd BufNewFile,BufRead *.ru set filetype=ruby
   autocmd BufNewFile,BufRead *.elm set filetype=elm
+  autocmd BufNewFile,BufRead *.hs set filetype=haskell
+  autocmd BufNewFile,BufRead *.hs setlocal autoindent
+  autocmd BufNewFile,BufRead *.cabal set filetype=cabal
 
   autocmd FileType text,markdown setlocal textwidth=78
 
