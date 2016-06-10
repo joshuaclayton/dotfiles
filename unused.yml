@@ -1,0 +1,54 @@
+- name: Rails
+  autoLowLikelihood:
+    - name: Administrate
+      pathStartsWith: app/dashboards
+      classOrModule: true
+      termEndsWith: Dashboard
+    - name: Clearance
+      allowedTerms:
+        - url_after_destroy
+        - ClearanceMailer
+      pathEndsWith: .rb
+      pathStartsWith: app
+    - name: ActiveModel::Serializer
+      termEndsWith: Serializer
+      classOrModule: true
+    - name: Pundit
+      termEndsWith: Policy
+      classOrModule: true
+      pathEndsWith: .rb
+    - name: Pundit Helpers
+      allowedTerms:
+        - Scope
+        - index?
+        - new?
+        - create?
+        - show?
+        - edit?
+        - destroy?
+        - resolve
+    - name: JSONAPI::Resources
+      termEndsWith: Resource
+      classOrModule: true
+      pathStartsWith: app/resources
+    - name: JSONAPI::Resources Helpers
+      allowedTerms:
+      - updatable_fields
+      pathStartsWith: app/resources
+    - name: Devise
+      allowedTerms:
+      - after_sign_in_path_for
+      - after_sign_out_path_for
+      pathStartsWith: app/
+    - name: Mailer Previews
+      pathStartsWith: spec/mailers
+      classOrModule: true
+      termEndsWith: Preview
+- name: Phoenix
+  autoLowLikelihood:
+    - name: ExMachina Factories
+      termEndsWith: _factory
+      pathEndsWith: /factory.ex
+    - name: ExMachina Traits
+      termStartsWith: with_
+      pathEndsWith: /factory.ex
