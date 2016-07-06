@@ -1,5 +1,12 @@
 - name: Rails
   autoLowLikelihood:
+    - name: Tests
+      pathStartsWith: test/
+      pathEndsWith: .rb
+      termStartsWith: test_
+    - name: Jobs
+      pathStartsWith: app/jobs/
+      classOrModule: true
     - name: Administrate
       pathStartsWith: app/dashboards
       classOrModule: true
