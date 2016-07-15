@@ -16,6 +16,7 @@ alias o=$EDITOR
 alias dotf="cd $HOME/.dotfiles"
 alias ls="ls -G"
 alias mkdir="mkdir -p"
+alias nvimconfig="cd ~/.config/nvim"
 
 # services
 alias nick="mplayer ~/Music/Theme\ Music/528491.wav > /dev/null 2>&1"
