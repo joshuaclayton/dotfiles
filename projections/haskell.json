@@ -1,0 +1,12 @@
+{
+  "src/*.hs": {
+    "type": "source",
+    "alternate": "test/{camelcase}Spec.hs"
+  },
+  "app/Main.hs": {
+    "type": "main"
+  },
+  "app/App.hs": {
+    "type": "app"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "priv/repo/migrations/*.exs": {
+    "type": "migration"
+  },
+  "web/models/*.ex": {
+    "type": "model",
+    "alternate": "test/models/{}_test.exs"
+  },
+  "web/controllers/*_controller.ex": {
+    "type": "controller",
+    "alternate": "test/controllers/{}_controller_test.exs",
+    "template": "defmodule AppName.{camelcase}Controller\n  use AppName.Web, :controller\nend"
+  },
+  "web/channels/*_channel.ex": {
+    "type": "channel",
+    "alternate": "test/channels/{}_test.exs",
+    "template": "defmodule AppName.Channels.{camelcase}Channel\n  use Phoenix.Channel\n\n  def join(_topic, _params, socket) do\n    {open}:ok, socket{close}\n  end\nend"
+  },
+  "web/encoders/*.ex": {
+    "type": "encoder",
+    "alternate": "test/encoders/{}_test.exs"
+  },
+  "web/plugs/*.ex": {
+    "type": "plug",
+    "alternate": "test/plug/{}_test.exs",
+    "template": "defmodule AppName.Plugs.{camelcase}\n  import Plug.Conn\n\n  def init(opts), do: opts\nend"
+  },
+  "web/services/*.ex": {
+    "type": "service",
+    "alternate": "test/services/{}_test.exs",
+    "template": "defmodule AppName.{camelcase}\n\nend"
+  },
+  "web/views/*.ex": {
+    "type": "view",
+    "alternate": "test/views/{}_test.exs",
+    "template": "defmodule AppName.{camelcase}View\n  use AppName.Web, :view\nend"
+  },
+  "web/templates/*.html.eex": {
+    "type": "template"
+  },
+  "web/templates/layout/*.html.eex": {
+    "type": "layout"
+  },
+  "web/static/js/*": {
+    "type": "js"
+  },
+  "web/static/css/*": {
+    "type": "css"
+  },
+  "web/router.ex": {
+    "type": "router"
+  },
+  "test/controllers/*_test.exs": {
+    "alternate": "web/controllers/{}.ex",
+    "template": "defmodule AppName.{camelcase}Test\n  use AppName.ConnCase\nend"
+  },
+  "test/models/*_test.exs": {
+    "alternate": "web/models/{}.ex",
+    "template": "defmodule AppName.{camelcase}Test\n  use AppName.ConnCase\nend"
+  },
+  "test/support/factories.ex": {
+    "command": "factories"
+  },
+  "*": {
+    "make": "mix test",
+    "console": "iex -S mix phoenix.server",
+    "start": "mix phoenix.server"
+  },
+  "test/*_test.exs": {
+    "command": "test",
+    "dispatch": "mix test {file}"
+  },
+  "*": {
+    "make": "mix test",
+    "console": "iex -S mix phoenix.server",
+    "start": "mix phoenix.server"
+  }
+}

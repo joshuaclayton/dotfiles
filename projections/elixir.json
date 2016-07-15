@@ -1,0 +1,13 @@
+{
+  "lib/*.ex": {
+    "type": "source",
+    "alternate": "test/lib/{}_test.exs"
+  },
+  "*": {
+    "make": "mix test"
+  },
+  "test/*_test.exs": {
+    "command": "test",
+    "dispatch": "mix test {file}"
+  }
+}

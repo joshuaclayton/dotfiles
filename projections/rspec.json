@@ -1,0 +1,23 @@
+{
+  "spec/spec_helper.rb": {
+    "type": "spechelper"
+  },
+  "spec/support/*.rb": {
+    "type": "support"
+  },
+  "spec/features/*.rb": {
+    "type": "feature"
+  },
+  "spec/acceptance/*.rb": {
+    "type": "feature"
+  },
+  "spec/requests/*.rb": {
+    "type": "request"
+  },
+  "spec/integration/*.rb": {
+    "type": "integration"
+  },
+  "spec/*.rb": {
+    "type": "spec"
+  }
+}

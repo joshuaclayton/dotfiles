@@ -5,6 +5,11 @@ cdpath=($HOME/dev $HOME/dev/thoughtbot $HOME/dev/gems $HOME/dev/personal)
 
 function chpwd {
   echo "$(pwd)" >! "$CURRENT_PROJECT_PATH"
+  local v=$(projections)
+  if [[ $? -eq 0 ]]; then
+    echo $v > .projections.json
+  fi
+
   ls
 }
 

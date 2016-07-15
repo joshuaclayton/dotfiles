@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+PROJECTIONS_PATH="$HOME/.projections"
+
+list=()
+
+if [ -f "mix.exs" ]; then list+=('elixir'); fi
+if [ -f "web/router.ex" ]; then list+=('phoenix'); fi
+if [ -f "app/Main.hs" ]; then list+=('haskell'); fi
+if [ -f "Rakefile" ]; then list+=('rake'); fi
+if [ -f "spec/spec_helper.rb" ]; then list+=('rspec'); fi
+__gemspec=(*.gemspec)
+if [ -f "${__gemspec[0]}" ]; then list+=('ruby'); fi
+
+# handle some arbitrarily large number of combinations
+
+count=0
+while [ "x${list[count]}" != "x" ]; do
+  count=$((count + 1))
+done
+
+if [ $count -eq 0 ]; then exit 1; fi
+
+if [ $count -eq 1 ]; then
+  cat "$PROJECTIONS_PATH/${list[0]}.json"
+fi
+
+if [ $count -eq 2 ]; then
+  jq -s '.[0] * .[1]' "$PROJECTIONS_PATH/${list[0]}.json" "$PROJECTIONS_PATH/${list[1]}.json"
+fi
+
+if [ $count -eq 3 ]; then
+  jq -s '.[0] * .[1] * .[2]' "$PROJECTIONS_PATH/${list[0]}.json" "$PROJECTIONS_PATH/${list[1]}.json" "$PROJECTIONS_PATH/${list[2]}.json"
+fi
+
+if [ $count -eq 4 ]; then
+  jq -s '.[0] * .[1] * .[2] * .[3]' "$PROJECTIONS_PATH/${list[0]}.json" "$PROJECTIONS_PATH/${list[1]}.json" "$PROJECTIONS_PATH/${list[2]}.json" "$PROJECTIONS_PATH/${list[3]}.json"
+fi
+
+if [ $count -eq 5 ]; then
+  jq -s '.[0] * .[1] * .[2] * .[3] * .[4]' "$PROJECTIONS_PATH/${list[0]}.json" "$PROJECTIONS_PATH/${list[1]}.json" "$PROJECTIONS_PATH/${list[2]}.json" "$PROJECTIONS_PATH/${list[3]}.json" "$PROJECTIONS_PATH/${list[4]}.json"
+fi
+
