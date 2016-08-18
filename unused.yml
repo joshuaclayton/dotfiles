@@ -1,4 +1,9 @@
 - name: Rails
+  aliases:
+    - from: "*="
+      to: "{}:"
+    - from: "*="
+      to: ".{} ="
   autoLowLikelihood:
     - name: Tests
       pathStartsWith: test/
