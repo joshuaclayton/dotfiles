@@ -72,6 +72,14 @@ function __filter_homebrew {
   fi
 }
 
+function __filter_homebrew_outdated {
+  if ! [[ -f "/tmp/outdated.$$" ]]; then
+    echo $(brew outdated | awk '{print $1}') > "/tmp/outdated.$$"
+  fi
+
+  cat "/tmp/outdated.$$"
+}
+
 _brew() {
   if (( CURRENT == 2 )); then
     compadd list
@@ -97,7 +105,7 @@ _brew() {
     elif [[ $words[2] == "cleanup" ]]; then
       compadd $(brew list --versions | grep ' .* ' | awk '{print $1}')
     elif [[ $words[2] == "upgrade" ]]; then
-      compadd $(brew outdated | awk '{print $1}')
+      compadd $(__filter_homebrew_outdated)
     fi
   fi
 }
