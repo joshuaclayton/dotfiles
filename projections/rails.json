@@ -35,6 +35,10 @@
     ]
   },
 
+  "app/views/pages/*.html.haml": {
+    "command": "page"
+  },
+
   "config/routes.rb": {"command": "routes"},
   "spec/features/*_spec.rb": {"command": "feature"},
   "spec/requests/*_spec.rb": {"command": "feature"},
