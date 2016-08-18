@@ -10,6 +10,7 @@ if [ -f "app/Main.hs" ]; then list+=('haskell'); fi
 if [ -f "Rakefile" ]; then list+=('rake'); fi
 if [ -f "spec/spec_helper.rb" ]; then list+=('rspec'); fi
 if [ -f "config/routes.rb" ]; then list+=('rails'); fi
+if [ -f "app/router.js" ]; then list+=('ember'); fi
 __gemspec=(*.gemspec)
 if [ -f "${__gemspec[0]}" ]; then list+=('ruby'); fi
 

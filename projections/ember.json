@@ -1,0 +1,52 @@
+{
+  "app/routes/*.js": {
+    "command": "route",
+    "template": "import Ember from 'ember';\n\nexport default Ember.Route.extend({});",
+    "alternate": [
+      "app/templates/{}.hbs"
+    ]
+  },
+  "app/utils/*.js": {
+    "command": "util",
+    "template":
+    "const %S = function() {\n};export {\n  %S\n};"
+  },
+  "app/models/*.js": {
+    "command": "model",
+    "template":
+    "import DS from 'ember-data';\n\nexport default DS.Model.extend({\n});"
+  },
+  "app/templates/*.hbs": {
+    "command": "template",
+    "alternate": [
+      "app/routes/{}.js"
+    ]
+  },
+  "app/templates/components/*.hbs": {
+    "command": "ctemplate",
+    "alternate": [
+      "app/components/{}.js"
+    ]
+  },
+  "app/controllers/*.js": {
+    "command": "controller",
+    "alternate": [
+      "app/routes/{}.js"
+    ]
+  },
+  "app/decorators/*.js": {
+    "command": "decorator"
+  },
+  "app/helpers/*.js": {
+    "command": "helper"
+  },
+  "app/services/*.js": {
+    "command": "service"
+  },
+  "app/components/*.js": {
+    "command": "component",
+    "alternate": [
+      "app/templates/components/{}.hbs"
+    ]
+  }
+}
