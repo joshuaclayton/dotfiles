@@ -3,10 +3,10 @@
 set -e
 
 while true; do
-  if [ -n "$(fping google.com | grep alive)" ]; then
-    echo "alive" >> $INTERNET_STATUS_LOG
+  if nc -w 1 -z 8.8.8.8 53 2>&1 | grep -q succeeded; then
+    echo "alive" >> "$INTERNET_STATUS_LOG"
   else
-    echo "dead" >> $INTERNET_STATUS_LOG
+    echo "dead" >> "$INTERNET_STATUS_LOG"
   fi
 
   sleep 2

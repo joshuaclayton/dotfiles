@@ -35,6 +35,7 @@ task :install do
   files.each do |file|
     Installer.new.symlink(File.join(pwd, file), target_path(file))
   end
+  system "stack ghc -- -O2 -threaded bin/batt.hs"
 end
 
 desc "Remove all dotfies"

@@ -3,3 +3,5 @@
 *.netrwhist
 *.pyc
 vim/bundle
+*.hi
+*.o

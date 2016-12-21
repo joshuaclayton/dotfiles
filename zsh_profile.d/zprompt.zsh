@@ -53,6 +53,8 @@ _git_prompt_color() {
       echo "$(_green $1)"
     elif [ "untracked" = $current_git_status ]; then
       echo "$(_cyan $1)"
+    else
+      echo "$1"
     fi
   else
     echo "$1"
@@ -98,9 +100,9 @@ _colored_git_difference() { echo "$(_yellow "$(_git_difference_from_track)")" }
 
 _display_current_vim_mode() {
   if [[ $VIMODE == 'vicmd' ]]; then
-    echo "$(_red "✘")"
+    echo "❌"
   else
-    echo "$(_green "✔")"
+    echo "✅"
   fi
 }
 
@@ -133,20 +135,20 @@ _rprompt() {
 }
 
 _status_result() {
-  echo "%(?,$(_green "☺"), $(_red "☹"))"
+  echo "%(?,"😊","🙁")"
 }
 
 _display_internet_connection_status() {
   result=$(internet-status)
 
   if [[ (($result -lt 2)) ]]; then
-    echo "$(_red "☼")"
+    echo "👎"
   elif [[ (($result == 2)) ]]; then
-    echo "$(_yellow "☼")"
+    echo "👌"
   else
-    echo "$(_green "☼")"
+    echo "👍"
   fi
 }
 
-PROMPT='$(_display_internet_connection_status) $(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")$(_display_current_vim_mode) '
-RPROMPT='$(_status_result) $(_rprompt)'
+PROMPT='$(_display_internet_connection_status) $(_display_current_vim_mode) $(_status_result) $(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")'
+RPROMPT='$(_rprompt)'
