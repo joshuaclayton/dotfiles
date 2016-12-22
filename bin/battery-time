@@ -21,12 +21,12 @@ function charging_state() {
 
     fully_charged=$(echo "$o" | jq ".FullyCharged")
     if [[ $fully_charged == "$_true" ]]; then
-      s="charged"
+      s="🤑"
     else
-      s="charging"
+      s="🔵"
     fi
   else
-    s="not charging"
+    s="🔴 "
   fi
 
   echo "$s"
@@ -35,7 +35,7 @@ function charging_state() {
 if [[ $plugged_in == "$_true" ]]; then
   m1="$(charging_state)"
 else
-  m1="$(charging_state), $(time_remaining)"
+  m1="$(charging_state) $(time_remaining)"
 fi
 
 echo "$m1"

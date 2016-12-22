@@ -150,5 +150,5 @@ _display_internet_connection_status() {
   fi
 }
 
-PROMPT='$(_display_internet_connection_status) $(_display_current_vim_mode) $(_status_result) $(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")'
+PROMPT='$(_display_current_vim_mode) $(_status_result) $(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")'
 RPROMPT='$(_rprompt)'
