@@ -13,6 +13,7 @@ alias ..="cd ../"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias o=$EDITOR
+alias vim=nvim
 alias dotf="cd $HOME/.dotfiles"
 alias ls="ls -G"
 alias mkdir="mkdir -p"
