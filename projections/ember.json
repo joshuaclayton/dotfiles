@@ -1,26 +1,43 @@
 {
   "app/routes/*.js": {
     "command": "route",
-    "template": "import Ember from 'ember';\n\nexport default Ember.Route.extend({});",
+    "template": [
+      "import Ember from 'ember';",
+      "",
+      "export default Ember.Route.extend({});"
+    ],
     "alternate": [
       "app/templates/{}.hbs"
     ]
   },
   "app/utils/*.js": {
     "command": "util",
-    "template":
-    "const %S = function() {\n};export {\n  %S\n};"
+    "template": [
+      "const {camelcase} = function() {",
+      "};",
+      "",
+      "export {",
+      "  {camelcase}",
+      "};"
+    ]
   },
   "app/models/*.js": {
     "command": "model",
-    "template":
-    "import DS from 'ember-data';\n\nexport default DS.Model.extend({\n});"
+    "template": [
+      "import DS from 'ember-data';",
+      "",
+      "export default DS.Model.extend({",
+      "});"
+    ]
   },
   "app/templates/*.hbs": {
     "command": "template",
     "alternate": [
       "app/routes/{}.js"
     ]
+  },
+  "app/styles/*": {
+    "command": "style"
   },
   "app/templates/components/*.hbs": {
     "command": "ctemplate",

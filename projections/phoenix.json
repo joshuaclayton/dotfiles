@@ -9,12 +9,24 @@
   "web/controllers/*_controller.ex": {
     "type": "controller",
     "alternate": "test/controllers/{}_controller_test.exs",
-    "template": "defmodule AppName.{camelcase}Controller\n  use AppName.Web, :controller\nend"
+    "template": [
+      "defmodule AppName.{camelcase}Controller",
+      "  use AppName.Web, :controller",
+      "end"
+    ]
   },
   "web/channels/*_channel.ex": {
     "type": "channel",
     "alternate": "test/channels/{}_test.exs",
-    "template": "defmodule AppName.Channels.{camelcase}Channel\n  use Phoenix.Channel\n\n  def join(_topic, _params, socket) do\n    {open}:ok, socket{close}\n  end\nend"
+    "template": [
+      "defmodule AppName.Channels.{camelcase}Channel",
+      "  use Phoenix.Channel",
+      "",
+      "  def join(_topic, _params, socket) do",
+      "    {open}:ok, socket{close}",
+      "  end",
+      "end"
+    ]
   },
   "web/encoders/*.ex": {
     "type": "encoder",
@@ -23,17 +35,31 @@
   "web/plugs/*.ex": {
     "type": "plug",
     "alternate": "test/plug/{}_test.exs",
-    "template": "defmodule AppName.Plugs.{camelcase}\n  import Plug.Conn\n\n  def init(opts), do: opts\nend"
+    "template": [
+      "defmodule AppName.Plugs.{camelcase}",
+      "  import Plug.Conn",
+      "",
+      "  def init(opts), do: opts",
+      "end"
+    ]
   },
   "web/services/*.ex": {
     "type": "service",
     "alternate": "test/services/{}_test.exs",
-    "template": "defmodule AppName.{camelcase}\n\nend"
+    "template": [
+      "defmodule AppName.{camelcase} do",
+      "",
+      "end"
+    ]
   },
   "web/views/*.ex": {
     "type": "view",
     "alternate": "test/views/{}_test.exs",
-    "template": "defmodule AppName.{camelcase}View\n  use AppName.Web, :view\nend"
+    "template": [
+      "defmodule AppName.{camelcase}View",
+      "  use AppName.Web, :view",
+      "end"
+    ]
   },
   "web/templates/*.html.eex": {
     "type": "template"
@@ -52,11 +78,19 @@
   },
   "test/controllers/*_test.exs": {
     "alternate": "web/controllers/{}.ex",
-    "template": "defmodule AppName.{camelcase}Test\n  use AppName.ConnCase\nend"
+    "template": [
+      "defmodule AppName.{camelcase}Test",
+      "  use AppName.ConnCase",
+      "end"
+    ]
   },
   "test/models/*_test.exs": {
     "alternate": "web/models/{}.ex",
-    "template": "defmodule AppName.{camelcase}Test\n  use AppName.ConnCase\nend"
+    "template": [
+      "defmodule AppName.{camelcase}Test",
+      "  use AppName.ConnCase",
+      "end"
+    ]
   },
   "test/support/factories.ex": {
     "command": "factories"
