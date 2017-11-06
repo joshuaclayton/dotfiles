@@ -1,23 +1,39 @@
 {
-  "spec/spec_helper.rb": {
-    "type": "spechelper"
+  "spec/*_spec.rb": {
+    "command": "spec",
+    "template": [
+      "require \"rails_helper\"",
+      "",
+      "RSpec.describe {camelcase|capitalize|colons} do",
+      "end"
+    ]
   },
-  "spec/support/*.rb": {
-    "type": "support"
+  "spec/features/*_spec.rb": {
+    "command": "feature",
+    "template": [
+      "require \"rails_helper\"",
+      "",
+      "RSpec.feature \"\" do",
+      "  scenario \"\" do",
+      "  end",
+      "end"
+    ]
   },
-  "spec/features/*.rb": {
-    "type": "feature"
+  "spec/system/*_spec.rb": {
+    "command": "system",
+    "template": [
+      "require \"rails_helper\"",
+      "",
+      "RSpec.describe \"\" do",
+      "  it \"\" do",
+      "  end",
+      "end"
+    ]
   },
-  "spec/acceptance/*.rb": {
-    "type": "feature"
-  },
-  "spec/requests/*.rb": {
-    "type": "request"
-  },
-  "spec/integration/*.rb": {
-    "type": "integration"
-  },
-  "spec/*.rb": {
-    "type": "spec"
-  }
+  "spec/spec_helper.rb": { "command": "spechelper" },
+  "spec/support/*.rb": { "command": "support" },
+  "spec/factories.rb": {"command": "factories"},
+  "spec/factories/*.rb": {"command": "factories"},
+  "spec/requests/*_spec.rb": { "command": "request" },
+  "spec/integration/*_spec.rb": { "command": "integration" }
 }
