@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+git log | head -n1 | sed -e 's/commit //g'
