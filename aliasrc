@@ -24,3 +24,5 @@ alias nick="mplayer ~/Music/Theme\ Music/528491.wav > /dev/null 2>&1"
 
 # misc.
 alias timestamp="date +%Y%m%d%H%M%S"
+
+alias random_port="lsof -iTCP -sTCP:LISTEN -P | random_port"
