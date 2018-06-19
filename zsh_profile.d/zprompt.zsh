@@ -100,9 +100,9 @@ _colored_git_difference() { echo "$(_yellow "$(_git_difference_from_track)")" }
 
 _display_current_vim_mode() {
   if [[ $VIMODE == 'vicmd' ]]; then
-    echo "❌"
+    echo "$(_red "✘")"
   else
-    echo "✅"
+    echo "$(_green "✔")"
   fi
 }
 
@@ -119,12 +119,9 @@ function precmd {
 }
 
 _current_ruby() {
-  if [[ -n $rvm_path ]]; then
-    $rvm_path/bin/rvm-prompt
-  fi
-
-  if [[ -n $(rbenv version) ]]; then
-    rbenv version-name
+  result=$(ruby --version | cut -d '(' -f1)
+  if [[ -n $result ]]; then
+    echo $result
   fi
 }
 
@@ -135,7 +132,7 @@ _rprompt() {
 }
 
 _status_result() {
-  echo "%(?,"😊","🙁")"
+  echo "%(?,$(_green ":-)"), $(_red ":-("))"
 }
 
 _display_internet_connection_status() {
@@ -150,5 +147,5 @@ _display_internet_connection_status() {
   fi
 }
 
-PROMPT='$(_display_current_vim_mode) $(_status_result) $(_bracket_wrap "$(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")'
+PROMPT='$(_bracket_wrap "$(_display_current_vim_mode) $(_status_result) $(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")'
 RPROMPT='$(_rprompt)'
