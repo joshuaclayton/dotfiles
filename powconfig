@@ -1,3 +1,0 @@
-export POW_TIMEOUT=180
-export POW_WORKERS=1
-export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
