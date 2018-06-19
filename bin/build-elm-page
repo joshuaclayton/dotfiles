@@ -1,0 +1,85 @@
+#!/usr/bin/env ruby
+
+require "active_support/all"
+require "fileutils"
+
+namespace = ARGV[0]
+base_path = ARGV[1]
+
+portions = namespace.split(".")
+new_path = portions.join("/")
+last_portion = portions.last
+
+MODEL_FILE = <<-EOF
+module #{namespace}.Model
+    exposing
+        ( Model
+        , Msg(..)
+        , initial
+        )
+
+
+type alias Model =
+    {}
+
+
+type Msg
+    = NoOp
+
+
+initial : Model
+initial =
+    {}
+EOF
+
+UPDATE_FILE = <<-EOF
+module #{namespace}.Update
+    exposing
+        ( subscriptions
+        , init
+        , update
+        )
+
+import #{namespace}.Model as #{last_portion} exposing (Model, Msg(..))
+
+
+subscriptions : Model -> Sub Msg
+subscriptions =
+    always Sub.none
+
+
+init : ( Model, Cmd Msg )
+init =
+    #{last_portion}.initial ! []
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        NoOp ->
+            model ! []
+EOF
+
+VIEW_FILE = <<-EOF
+module #{namespace}.View exposing (view)
+
+import Html exposing (..)
+import #{last_portion}.Model exposing (Model, Msg(..))
+
+
+view : Model -> Html Msg
+view model =
+    text ""
+EOF
+
+full_path = "#{base_path}/#{new_path}"
+
+def string_to_file(string, path)
+  directory = File.dirname(path)
+  FileUtils.mkdir_p directory unless File.directory?(directory)
+  File.open(path, "w") { |file| file << string }
+end
+
+string_to_file MODEL_FILE, "#{full_path}/Model.elm"
+string_to_file UPDATE_FILE, "#{full_path}/Update.elm"
+string_to_file VIEW_FILE, "#{full_path}/View.elm"
