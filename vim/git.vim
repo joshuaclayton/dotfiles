@@ -1,1 +1,0 @@
-Plugin 'tpope/vim-fugitive'

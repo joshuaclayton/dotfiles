@@ -1,2 +1,0 @@
-set nobackup
-set nowritebackup
