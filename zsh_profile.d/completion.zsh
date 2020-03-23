@@ -126,6 +126,7 @@ _ack() {
 
 compdef _ack ack
 compdef _ack ag
+compdef _ack token-history
 
 _mark() {
   _files
