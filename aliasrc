@@ -29,3 +29,5 @@ alias timestamp="date +%Y%m%d%H%M%S"
 alias unused="unused --search rg"
 
 alias random_port="lsof -iTCP -sTCP:LISTEN -P | random_port"
+
+alias cat="bat"
