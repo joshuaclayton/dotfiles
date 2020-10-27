@@ -25,9 +25,6 @@ alias nick="mplayer ~/Music/Theme\ Music/528491.wav > /dev/null 2>&1"
 # misc.
 alias timestamp="date +%Y%m%d%H%M%S"
 
-# default unused to use rg instead of ag
-alias unused="unused --search rg"
-
 alias random_port="lsof -iTCP -sTCP:LISTEN -P | random_port"
 
 alias cat="bat"

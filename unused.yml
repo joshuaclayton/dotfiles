@@ -9,6 +9,8 @@
       pathStartsWith: test/
       pathEndsWith: .rb
       termStartsWith: test_
+    - name: Migrations
+      pathStartsWith: db/migrate
     - name: Jobs
       pathStartsWith: app/jobs/
       classOrModule: true
@@ -29,6 +31,9 @@
       termEndsWith: Policy
       classOrModule: true
       pathEndsWith: .rb
+    - name: Mailer Helpers
+      allowedTerms:
+      - to
     - name: Pundit Helpers
       allowedTerms:
         - Scope
