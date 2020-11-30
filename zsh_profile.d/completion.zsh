@@ -1,7 +1,10 @@
 autoload -U compinit
 compinit
 autoload -U +X bashcompinit && bashcompinit
-eval "$(stack --bash-completion-script stack)"
+
+if type "stack" > /dev/null; then
+  eval "$(stack --bash-completion-script stack)"
+fi
 
 _grb() {
   if [[ -n $(git symbolic-ref HEAD 2> /dev/null) ]]; then
