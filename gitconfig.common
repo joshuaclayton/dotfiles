@@ -42,7 +42,7 @@
 [branch]
   autosetuprebase = always
 [core]
-  excludesfile = /Users/joshuaclayton/.gitignore
+  excludesfile = ~/.gitignore
   autocrlf = input
   whitespace = =
 [mergetool]
