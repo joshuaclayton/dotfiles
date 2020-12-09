@@ -1,0 +1,71 @@
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
+[color "status"]
+  added = yellow
+  changed = red
+  untracked = cyan
+[alias]
+  from = !git fetch && git rebase origin/master
+  a = add -A
+  p = pull
+  co = checkout
+  st = status
+  ci = commit
+  blam = log -u
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  prod = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" production/master..origin/master
+  staging = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" staging/master..origin/master
+  stagingtoprod = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" production/master..staging/master
+  rom = rebase origin/master
+  next-commit = !git checkout $(git log --reverse --ancestry-path --pretty=%H HEAD..master | head -1)
+	ctags = !.git/hooks/ctags
+[apply]
+  whitespace = nowarn
+[diff "ruby"]
+  funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
+[merge]
+  summary = true
+	conflictstyle = diff3
+[push]
+  default = upstream
+[branch]
+  autosetuprebase = always
+[core]
+  excludesfile = /Users/joshuaclayton/.gitignore
+  autocrlf = input
+  whitespace = =
+[mergetool]
+  keepBackup = true
+[url "git@github.com:"]
+  insteadOf = gh:
+[url "git@heroku.com:"]
+  insteadOf = heroku:
+[init]
+	templatedir = ~/.git_template
+	defaultBranch = main
+[heroku]
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[fetch]
+	prune = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

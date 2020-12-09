@@ -1,0 +1,14 @@
+.thisfile
+.rake_tasks
+*.sw[nop]
+*.DS_Store
+zeus.json
+bin/stubs
+.elasticbeanstalk/
+.projections.json
+repl-temp*.elm
+.env
+gradle*
+tags
+.tool-versions
+tmp/unused

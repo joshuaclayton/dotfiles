@@ -14,3 +14,5 @@ rdebugrc
 unused.yml
 ctags
 projections
+gitignore
+gitconfig.common
