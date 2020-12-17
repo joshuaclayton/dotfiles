@@ -5,3 +5,4 @@
 vim/bundle
 *.hi
 *.o
+Brewfile.lock.json
