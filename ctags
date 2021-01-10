@@ -1,13 +1,1 @@
---exclude=.stack-work
---exclude=vendor
---exclude=priv/static/js
---exclude=coverage
---exclude=elm-stuff
---exclude=bower_components
---exclude=node_modules
---exclude=_build
---exclude=dist
---exclude=tmp
---exclude=deps
---exclude=public
---exclude=.git
+--exclude=json
