@@ -34,7 +34,8 @@ brew "graphviz"
 brew "imagemagick"
 brew "neovim"
 brew "hub"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+tap "universal-ctags/universal-ctags"
+brew "universal-ctags", args: ["HEAD"]
 tap "homebrew/cask"
 cask "chromedriver"
 cask "ngrok"
