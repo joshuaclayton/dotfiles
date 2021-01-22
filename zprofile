@@ -6,7 +6,3 @@ path=(.git/safe/../../node_modules/.bin .git/safe/../../bin .git/safe/../../bin/
 source /Users/joshuaclayton/.asdf/installs/rust/1.41.1/env
 
 export PATH="$HOME/.cargo/bin:$PATH"
-
-if type "yarn" > /dev/null; then
-  export PATH="$(yarn global bin):$PATH"
-fi
