@@ -4,11 +4,9 @@ for zsh_source in $HOME/.zsh_profile.d/*.zsh; do
   source $zsh_source
 done
 
-if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-    source ~/.gnupg/.gpg-agent-info
-    export GPG_AGENT_INFO
+if pgrep gpg-agent >/dev/null; then
 else
-    eval $(gpg-agent --daemon --allow-preset-passphrase ~/.gnupg/.gpg-agent-info)
+  eval $(gpg-agent --daemon --allow-preset-passphrase ~/.gnupg/.gpg-agent-info)
 fi
 
 cd_to_most_recently_opened_directory
