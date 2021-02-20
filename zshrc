@@ -6,7 +6,7 @@ done
 
 if pgrep gpg-agent >/dev/null; then
 else
-  eval $(gpg-agent --daemon --allow-preset-passphrase ~/.gnupg/.gpg-agent-info)
+  eval $(gpg-agent --daemon --options ~/.gnupg/gpg-agent.conf)
 fi
 
 cd_to_most_recently_opened_directory
