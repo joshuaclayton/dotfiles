@@ -135,17 +135,5 @@ _status_result() {
   echo "%(?,$(_green ":-)"), $(_red ":-("))"
 }
 
-_display_internet_connection_status() {
-  result=$(internet-status)
-
-  if [[ (($result -lt 2)) ]]; then
-    echo "👎"
-  elif [[ (($result == 2)) ]]; then
-    echo "👌"
-  else
-    echo "👍"
-  fi
-}
-
 PROMPT='$(_bracket_wrap "$(_display_current_vim_mode) $(_status_result) $(_basic)$(_separate $(_colored_git_branch))$(_separate $(_colored_git_difference))")'
 RPROMPT='$(_rprompt)'
