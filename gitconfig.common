@@ -16,7 +16,7 @@
   changed = red
   untracked = cyan
 [alias]
-  from = !git fetch && git rebase origin/master
+  from = !git fetch && git rebase origin/main
   a = add -A
   p = pull
   co = checkout
