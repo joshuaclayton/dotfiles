@@ -34,6 +34,8 @@ brew "graphviz"
 brew "imagemagick"
 brew "neovim"
 brew "hub"
+brew "zola"
+brew "asdf"
 tap "universal-ctags/universal-ctags"
 brew "universal-ctags", args: ["HEAD"]
 tap "homebrew/cask"
