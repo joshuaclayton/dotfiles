@@ -1,3 +1,0 @@
-#! /usr/bin/env sh
-
-rabbitmqctl delete_vhost / && rabbitmqctl add_vhost / && rabbitmqctl set_permissions -p / guest ".*" ".*" ".*"
