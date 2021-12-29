@@ -13,6 +13,8 @@ brew "youtube-dl"
 brew "yq"
 brew "bench"
 brew "fzf"
+brew "xsv"
+brew "fd"
 
 # shell
 brew "reattach-to-user-namespace"
@@ -54,6 +56,7 @@ brew "unused-code/formulae/unused"
 
 tap "homebrew/cask-fonts"
 cask "font-cascadia-code-pl"
+cask "font-jetbrains-mono-pl"
 
 # databases
 brew "postgresql"
