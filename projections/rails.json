@@ -62,6 +62,20 @@
     ]
   },
 
+  "app/components/*_component.rb": {
+    "command": "component",
+    "template": [
+      "class {camelcase|capitalize|colons}Component < ViewComponent::Base",
+      "end"
+    ],
+    "alternate": [
+      "app/components/{}_component.html.erb"
+    ],
+    "test": [
+      "spec/components/{}_component_spec.rb"
+    ]
+  },
+
   "app/views/pages/*.html.haml": {
     "command": "page"
   },
