@@ -1,5 +1,9 @@
 source $HOME/.aliasrc
 
+if [ -f $HOME/.aliasrc.local ]; then
+  source $HOME/.aliasrc.local
+fi
+
 for zsh_source in $HOME/.zsh_profile.d/*.zsh; do
   source $zsh_source
 done
