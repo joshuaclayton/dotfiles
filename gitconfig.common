@@ -17,18 +17,10 @@
   untracked = cyan
 [alias]
   from = !git fetch && git rebase origin/main
-  a = add -A
-  p = pull
   co = checkout
   st = status
   ci = commit
   blam = log -u
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  prod = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" production/master..origin/master
-  staging = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" staging/master..origin/master
-  stagingtoprod = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" production/master..staging/master
-  rom = rebase origin/master
-  next-commit = !git checkout $(git log --reverse --ancestry-path --pretty=%H HEAD..master | head -1)
 	ctags = !.git/hooks/ctags
 [apply]
   whitespace = nowarn
