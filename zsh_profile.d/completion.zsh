@@ -14,7 +14,7 @@ _grb() {
       if [[ $words[2] == "publish" ]]; then
         compadd $(git branch -l | sed "s/[ \*]//g")
       else;
-        compadd $(git branch -r | grep -v HEAD | sed "s/.*\///" | sed "s/ //g")
+        compadd $(git branch -r | grep -v HEAD | sed "s/.*\///" | sed "s/ //g" | sed "s/^-.*//g" | sed '/^[[:space:]]*$/d')
       fi
     elif (( CURRENT == 4 )); then
       compadd $(git remote)
