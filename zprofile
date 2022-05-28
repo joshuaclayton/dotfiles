@@ -2,4 +2,4 @@ path=($HOME/.dotfiles/bin $HOME/.local/bin $HOME/bin $GOPATH/bin /usr/local/shar
 path=($HOME/.elmenv/bin $path)
 . $(brew --prefix asdf)/asdf.sh
 path=(.git/safe/../../node_modules/.bin .git/safe/../../bin .git/safe/../../bin/stubs $path)
-path=($(asdf where rust)/bin $(asdf where python)/bin $path)
+path=($(asdf where python)/bin $path)
