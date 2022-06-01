@@ -17,6 +17,8 @@ brew "bench"
 brew "fzf"
 brew "xsv"
 brew "fd"
+cask "signal"
+cask "numi"
 
 # shell
 brew "reattach-to-user-namespace"
@@ -45,6 +47,8 @@ brew "universal-ctags", args: ["HEAD"]
 cask "chromedriver"
 cask "ngrok"
 cask "kitty"
+cask "postico"
+cask "rowanj-gitx"
 
 tap "heroku/brew"
 brew "heroku"
