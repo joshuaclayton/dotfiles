@@ -1,3 +1,5 @@
+tap "homebrew/cask"
+
 # utilities
 brew "bat"
 brew "b3sum"
@@ -40,7 +42,6 @@ brew "zola"
 brew "asdf"
 tap "universal-ctags/universal-ctags"
 brew "universal-ctags", args: ["HEAD"]
-tap "homebrew/cask"
 cask "chromedriver"
 cask "ngrok"
 cask "kitty"
