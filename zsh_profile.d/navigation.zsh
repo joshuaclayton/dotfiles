@@ -1,7 +1,7 @@
 export CURRENT_PROJECT_PATH=$HOME/.current-project
 
 setopt auto_cd
-cdpath=($HOME/dev $HOME/dev/thoughtbot $HOME/dev/unused $HOME/dev/gems $HOME/dev/personal)
+cdpath=($HOME/dev $HOME/dev/unused $HOME/dev/gems $HOME/dev/personal)
 
 function chpwd {
   echo "$(pwd)" >! "$CURRENT_PROJECT_PATH"
