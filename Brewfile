@@ -55,6 +55,7 @@ brew "heroku"
 
 tap "thoughtbot/formulae"
 brew "parity"
+brew "complexity"
 
 tap "unused-code/formulae"
 brew "unused-code/formulae/unused"
