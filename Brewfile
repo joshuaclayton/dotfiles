@@ -61,7 +61,6 @@ brew "unused-code/formulae/unused"
 
 tap "homebrew/cask-fonts"
 cask "font-cascadia-code-pl"
-cask "font-jetbrains-mono-pl"
 
 # databases
 brew "postgresql"
