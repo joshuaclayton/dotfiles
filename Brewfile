@@ -20,6 +20,11 @@ brew "fd"
 cask "signal"
 cask "numi"
 
+# searching documents
+%w[rga pandoc poppler tesseract tesseract-lang ffmpeg].each do |package|
+  brew package
+end
+
 # shell
 brew "reattach-to-user-namespace"
 brew "starship"
