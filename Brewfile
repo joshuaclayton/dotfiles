@@ -53,6 +53,7 @@ cask "ngrok"
 cask "kitty"
 cask "postico"
 cask "rowanj-gitx"
+cask "keycastr"
 
 tap "heroku/brew"
 brew "heroku"
