@@ -29,6 +29,24 @@
       "spec/presenters/{}_spec.rb"
     ]
   },
+  "app/queries/*_query.rb": {
+    "command": "query",
+    "template": [
+      "class {camelcase|capitalize|colons}Query",
+      "  def initialize(scope:)",
+      "    @scope = scope",
+      "  end",
+      "",
+      "  private",
+      "",
+      "  def records",
+      "  end",
+      "end"
+    ],
+    "test": [
+      "spec/queries/{}_spec.rb"
+    ]
+  },
   "app/policies/*_policy.rb": {
     "command": "policy",
     "template": [
