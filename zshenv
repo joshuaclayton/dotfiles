@@ -6,4 +6,9 @@ export REMOTE_GEM_CACHE_PATH=$HOME/.remote-gem-cache
 export ZSH_HISTORY_PATH=$HOME/.zsh_history
 export HOMEBREW_SEARCH_CACHE_PATH=$HOME/.homebrew-search-cache
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+fi
+
 . "$HOME/.cargo/env"
