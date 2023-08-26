@@ -1,7 +1,9 @@
 def benchmark
   t1 = Time.now
-  yield
-  "#{(Time.now - t1) * 1000}ms"
+  result = yield
+  puts "#{(Time.now - t1) * 1000}ms"
+
+  result
 end
 
 def benchmark_average(times = 20)
