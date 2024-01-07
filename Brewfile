@@ -26,7 +26,6 @@ cask "numi"
 end
 
 # shell
-brew "reattach-to-user-namespace"
 brew "starship"
 brew "tmux"
 brew "zsh"
