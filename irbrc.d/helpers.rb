@@ -6,6 +6,10 @@ def benchmark
   result
 end
 
+def pbcopy(arg)
+  IO.popen("pbcopy", "w") { |io| io.puts arg }
+end
+
 def benchmark_average(times = 20)
   average = []
   times.times do
