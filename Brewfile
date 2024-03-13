@@ -1,5 +1,3 @@
-tap "homebrew/cask"
-
 # utilities
 brew "bat"
 brew "b3sum"
@@ -17,6 +15,7 @@ brew "bench"
 brew "fzf"
 brew "xsv"
 brew "fd"
+brew "difftastic"
 cask "signal"
 cask "numi"
 
