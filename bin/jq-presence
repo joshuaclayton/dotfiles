@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ "$#" -eq 1 ]; then
+    jq --arg field "$1" 'map(has($field)) | group_by(.) | map({key: .[0], count: length})'
+elif [ "$#" -eq 2 ]; then
+    jq --arg inner "$1" --arg field "$2" '[.[] | .[$inner]] | map(has($field)) | group_by(.) | map({key: .[0], count: length})'
+else
+    echo "Usage: $0 [<inner>] <field>"
+    exit 1
+fi
