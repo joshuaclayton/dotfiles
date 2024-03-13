@@ -7,8 +7,8 @@ export ZSH_HISTORY_PATH=$HOME/.zsh_history
 export HOMEBREW_SEARCH_CACHE_PATH=$HOME/.homebrew-search-cache
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files'
+if type ag &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .yarn -l -g ""'
 fi
 
 . "$HOME/.cargo/env"
