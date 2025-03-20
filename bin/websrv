@@ -1,7 +1,11 @@
 #!/usr/bin/env ruby
-require 'rubygems'
-require 'webrick'
-require 'optparse'
+require 'bundler/inline'
+
+gemfile do
+  source 'https://rubygems.org'
+  gem 'webrick'
+  gem 'optparse'
+end
 
 options = {}
 
