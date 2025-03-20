@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+jq 'walk(if type == "object" then to_entries | sort_by(.key) | from_entries else . end)'
