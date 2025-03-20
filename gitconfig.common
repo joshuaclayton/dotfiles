@@ -2,6 +2,14 @@
   branch = auto
   diff = auto
   status = auto
+[diff]
+  tool = difftastic
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [color "branch"]
   current = yellow reverse
   local = yellow
