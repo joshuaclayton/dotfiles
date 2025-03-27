@@ -1,4 +1,62 @@
 {
+  "app/domains/**/models/*.rb": {
+    "command": "model",
+    "template": [
+      "module {dirname|camelcase|capitalize|colons}",
+      "  class {basename|camelcase|capitalize|colons} < ApplicationRecord",
+      "  end",
+      "end"
+    ],
+    "test": [
+      "spec/domains/{dirname}/models/{basename}_spec.rb"
+    ]
+  },
+  "app/domains/**/services/*.rb": {
+    "command": "service",
+    "template": [
+      "module {dirname|camelcase|capitalize|colons}",
+      "  class {basename|camelcase|capitalize|colons}",
+      "  end",
+      "end"
+    ],
+    "test": [
+      "spec/domains/{dirname}/services/{basename}_spec.rb"
+    ]
+  },
+  "app/domains/**/controllers/*_controller.rb": {
+    "command": "controller",
+    "template": [
+      "module {dirname|camelcase|capitalize|colons}",
+      "  class {basename|camelcase|capitalize|colons}Controller < ApplicationController",
+      "  end",
+      "end"
+    ],
+    "test": [
+      "spec/domains/{dirname}/controllers/{basename}_controller_spec.rb"
+    ]
+  },
+  "app/domains/**/views/*": {
+    "command": "view",
+    "template": [
+      ""
+    ],
+    "test": [
+      "spec/domains/{dirname}/views/{basename}_spec.rb"
+    ]
+  },
+  "app/domains/**/workers/*.rb": {
+    "command": "worker",
+    "template": [
+      "module {dirname|camelcase|capitalize|colons}",
+      "  class {basename|camelcase|capitalize|colons}",
+      "    include Sidekiq::Worker",
+      "  end",
+      "end"
+    ],
+    "test": [
+      "spec/domains/{dirname}/workers/{basename}_spec.rb"
+    ]
+  },
   "app/jobs/*.rb": {
     "command": "job",
     "template": [
@@ -79,7 +137,6 @@
       "spec/serializers/{}_serializer_spec.rb"
     ]
   },
-
   "app/components/*_component.rb": {
     "command": "component",
     "template": [
@@ -93,9 +150,22 @@
       "spec/components/{}_component_spec.rb"
     ]
   },
-
+  "app/components/*_component.html.erb": {
+    "command": "component",
+    "template": [
+      ""
+    ],
+    "alternate": [
+      "app/components/{}_component.rb"
+    ],
+    "test": [
+      "spec/components/{}_component_spec.rb"
+    ]
+  },
   "app/views/pages/*.html.haml": {
     "command": "page"
   },
-  "config/routes.rb": {"command": "routes"}
+  "config/routes.rb": {
+    "command": "routes"
+  }
 }
