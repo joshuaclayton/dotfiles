@@ -8,7 +8,6 @@ brew "tokei"
 brew "tree"
 brew "watchexec"
 brew "wget"
-brew "youtube-dl"
 brew "yq"
 brew "bench"
 brew "fzf"
@@ -53,23 +52,21 @@ cask "chromedriver"
 cask "ngrok"
 cask "kitty"
 cask "postico"
-cask "rowanj-gitx"
 cask "keycastr"
 
-tap "heroku/brew"
 brew "heroku"
-
-tap "thoughtbot/formulae"
-brew "parity"
-brew "complexity"
 
 tap "unused-code/formulae"
 brew "unused-code/formulae/unused"
 
-tap "homebrew/cask-fonts"
 cask "font-cascadia-code-pl"
 
 # databases
 brew "postgresql"
 brew "sqlite"
 brew "redis"
+
+cask "daisydisk"
+cask "orbstack"
+cask "cleanmymac"
+cask "tailscale"
