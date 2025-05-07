@@ -1,9 +1,26 @@
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -U compinit
 compinit
 autoload -U +X bashcompinit && bashcompinit
 
 if type "stack" > /dev/null; then
   eval "$(stack --bash-completion-script stack)"
+fi
+
+if command -v aws_completer &>/dev/null; then
+  complete -C aws_completer aws
+fi
+
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+
+if command -v just &>/dev/null; then
+  eval "$(just --completions zsh)"
+fi
+
+if command -v callc &>/dev/null; then
+  eval "$(callc completion generate zsh)"
 fi
 
 _grb() {

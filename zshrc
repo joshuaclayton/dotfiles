@@ -10,35 +10,26 @@ for zsh_source in $HOME/.zsh_profile.d/*.zsh; do
   source $zsh_source
 done
 
-if pgrep gpg-agent >/dev/null; then
-else
-  eval $(gpg-agent --daemon --options ~/.gnupg/gpg-agent.conf)
-fi
-
 cd_to_most_recently_opened_directory
 attach_to_tmux
 
-eval "$(starship init zsh)"
-
-if command -v callc &>/dev/null; then
-  eval "$(callc completion generate zsh)"
-fi
-
-if command -v aws_completer &>/dev/null; then
-  complete -C aws_completer aws
-fi
-
-if command -v ngrok &>/dev/null; then
-  eval "$(ngrok completion)"
-fi
-
-[ -f "/Users/joshuaclayton/.ghcup/env" ] && source "/Users/joshuaclayton/.ghcup/env" # ghcup-env
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 if [ -f $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local
 fi
 
-. "$HOME/.atuin/bin/env"
+# Adding NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 
-eval "$(atuin init zsh)"
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+# Adding pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
