@@ -9,3 +9,7 @@ if python_path=$(asdf where python 2>/dev/null); then
   fi
 fi
 path=(.git/safe/../../node_modules/.bin .git/safe/../../bin .git/safe/../../bin/stubs $path)
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
